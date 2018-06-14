@@ -19,7 +19,7 @@
                     ],
                     'options' => [
                         'enctype' => 'multipart/form-data'
-                    ],
+                    ],                    
                 ])
             ?>
             
@@ -36,10 +36,6 @@
             <div class="col-sm-6 col-xs-12">
 
                 <?= $form->field($model, 'file')->fileInput(['id' => 'file', 'name' => 'file'])->label() ?>
-                
-                <div class="row">
-                    <span id="output"></span>
-                </div>
                 
                 <?php if (!$model->isNewRecord) : ?>
                     <div class="row text-center">
