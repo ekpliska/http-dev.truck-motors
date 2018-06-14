@@ -49,7 +49,7 @@ class Sliders extends ActiveRecord
             'sliders_name' => 'Название слайда',
             'file' => 'Изображение',
             'del_img' => 'Удалить изображение',
-            'sliders_show' => 'Показывать в слайдере на сайте'
+            'sliders_show' => 'Статус'
         ];
     }
 }

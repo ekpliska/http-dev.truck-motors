@@ -35,7 +35,7 @@
                     </li>
                     <li><a href="<?= Url::to(['menu/index']) ?>">Меню сайта</a></li>
                     <li><a href="<?= Url::to(['sliders/index']) ?>">Слайдер</a></li>
-                    <li><a href="#">Текстовые блоки</a></li>                     
+                    <li><a href="<?= Url::to(['text-blocks/index']) ?>">Текстовые блоки</a></li>                     
                     <li><a href="<?= Url::to(['/']) ?>">Перейти на сайт</a></li>
                     <li><a href="#" class="sf-lock-open">Выйти</a></li>
                 </ul>

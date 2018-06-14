@@ -1,10 +1,8 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\DetailView;
-use yii\widgets\Breadcrumbs;
-/* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Sliders */
+    use yii\helpers\Html;
+    use yii\widgets\DetailView;
+    use yii\widgets\Breadcrumbs;
 
 $this->title = Yii::$app->params['admin_panel_name'] . ' ' . 'Слайдер';
 $this->params['breadcrumbs'][] = ['label' => 'Слайдер', 'url' => ['index']];
@@ -44,6 +42,11 @@ $this->params['breadcrumbs'][] = 'Просмотр слайдера - ' . $model
                             'value'=>$model->sliders_image,
                             'format' => ['image', ['height' => '100']],
                         ],
+                        [
+                            'attribute' => 'Статус',
+                            'value' => $model->sliders_show ? Html::img('@web/images/sf/sign-check.svg', ['alt' => '']) : Html::img('@web/images/sf/sign-delete.svg', ['alt' => '']),
+                            'format' => 'raw',
+			], 
                     ],
                 ]) ?>
             </div>

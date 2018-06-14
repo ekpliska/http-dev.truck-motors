@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = 'Просмотр пункта меню - ' . $
                         'menu_description',
                         'menu_keywords',
                         [
-                            'attribute' => 'status',
+                            'attribute' => 'Статус',
                             'value' => $model->menu_show ? Html::img('@web/images/sf/sign-check.svg', ['alt' => '']) : Html::img('@web/images/sf/sign-delete.svg', ['alt' => '']),
                             'format' => 'raw',
 			], 
