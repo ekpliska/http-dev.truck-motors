@@ -18,7 +18,7 @@
                     'enableClientValidation' => true,
                     'enableAjaxValidation' => false,
                     'fieldConfig' => [
-                        'template' => '{label}{input}',
+                        'template' => '{label}{input}{error}',
                     ],
                 ])
             ?>

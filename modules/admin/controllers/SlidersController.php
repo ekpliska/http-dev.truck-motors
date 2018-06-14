@@ -3,20 +3,19 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Sliders;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use app\modules\admin\models\Sliders;
 
 /**
  * SlidersController implements the CRUD actions for Sliders model.
  */
 class SlidersController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
+
     public function behaviors()
     {
         return [
@@ -30,8 +29,7 @@ class SlidersController extends Controller
     }
 
     /**
-     * Lists all Sliders models.
-     * @return mixed
+     * Вывод главной страницы раздела "Слайдер"
      */
     public function actionIndex()
     {
@@ -45,10 +43,7 @@ class SlidersController extends Controller
     }
 
     /**
-     * Displays a single Sliders model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * Просмотр записи
      */
     public function actionView($id)
     {
@@ -58,29 +53,37 @@ class SlidersController extends Controller
     }
 
     /**
-     * Creates a new Sliders model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * Создание нового слайдера
      */
     public function actionCreate()
     {
         $model = new Sliders();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->sliders_id]);
+//        }
+
+        if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model, 'file');
+            $model->file = $file;
+            $dir = Yii::getAlias('images/slider/');
+            $fileName = md5(strtotime('now')). '_' . $model->file->baseName . '.' . $model->file->extension;
+            $model->file->saveAs($dir . $fileName);
+            $model->file = $fileName;
+            $model->sliders_image = '/' . $dir . $fileName;            
+        }
+        
+        if ($model->save()) {
             return $this->redirect(['view', 'id' => $model->sliders_id]);
         }
-
+        
         return $this->render('create', [
             'model' => $model,
         ]);
     }
 
     /**
-     * Updates an existing Sliders model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * Редактирование записи
      */
     public function actionUpdate($id)
     {
@@ -96,11 +99,7 @@ class SlidersController extends Controller
     }
 
     /**
-     * Deletes an existing Sliders model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * Удаление записи
      */
     public function actionDelete($id)
     {
@@ -110,11 +109,7 @@ class SlidersController extends Controller
     }
 
     /**
-     * Finds the Sliders model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Sliders the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * Поиск записи
      */
     protected function findModel($id)
     {
@@ -122,6 +117,7 @@ class SlidersController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException('Ошика, искомая запись не найдена.');
     }
+    
 }

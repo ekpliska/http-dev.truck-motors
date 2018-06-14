@@ -39,7 +39,11 @@ $this->params['breadcrumbs'][] = 'Просмотр слайдера - ' . $model
                         'sliders_name',
                         'sliders_title',
                         'sliders_text',
-                        'sliders_image',
+                        [
+                            'attribute'=>'sliders_image',
+                            'value'=>$model->sliders_image,
+                            'format' => ['image', ['height' => '100']],
+                        ],
                     ],
                 ]) ?>
             </div>

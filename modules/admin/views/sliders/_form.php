@@ -6,7 +6,6 @@
 /* @var $model app\modules\admin\models\Sliders */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
 <div class="row cm-fix-height">
     <div class="col-sm-12">
         <div class="row">
@@ -16,7 +15,10 @@
                     'enableClientValidation' => true,
                     'enableAjaxValidation' => false,
                     'fieldConfig' => [
-                        'template' => '{label}{input}',
+                        'template' => '{label}{input}{error}',
+                    ],
+                    'options' => [
+                        'enctype' => 'multipart/form-data'
                     ],
                 ])
             ?>
@@ -32,8 +34,21 @@
             </div>
 
             <div class="col-sm-6 col-xs-12">
+
+                <?= $form->field($model, 'file')->fileInput(['id' => 'file', 'name' => 'file'])->label() ?>
                 
-                <?= $form->field($model, 'sliders_image')->input('text', ['placeholder' => $model->getAttributeLabel('sliders_image')])->label() ?>
+                <div class="row">
+                    <span id="output"></span>
+                </div>
+                
+                <?php if (!$model->isNewRecord) : ?>
+                    <div class="row text-center">
+                        <?= Html::img($model->sliders_image, ['alt' => '', 'style' => 'height: 200px;']) ?>
+                    </div>
+                    <?= $form->field($model, 'del_img')->checkbox()->label(false) ?>
+                <?php endif; ?>
+                
+                <?= $form->field($model, 'sliders_show')->checkbox()->label(false) ?>
                 
             </div>
 
