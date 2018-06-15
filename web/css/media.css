@@ -16,6 +16,7 @@
 	
 	.panel_top__part_link p {
 		font-size: 18px;
+                margin-left: 10px;
 		padding: 3px;
 	}
 }
@@ -205,8 +206,8 @@
 	}
 
 	.panel_top__part_link p {
-	    font-size: 16px;
-	    margin-left: 20px;
+	    font-size: 15px;
+	    margin-left: 10px;
 	}
 
 	.panel_top__part_record a {
@@ -248,8 +249,8 @@
 	}
 
 	.panel_top__part_link p {
-	    font-size: 14px;
-	    margin-left: 15px;
+	    font-size: 12px;
+	    margin-left: 10px;
 	}
 	/* end style section record */
 	

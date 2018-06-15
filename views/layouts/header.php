@@ -49,7 +49,7 @@ use app\widgets\SiteMenu;
                         <div class="panel_top__part">
                             <div class="panel_top__part_record">
                                 <a href="<?= Url::to(['site/service']) ?>" class="panel_top__part_link">
-                                    <p>Записаться на СТО</p>
+                                    <p>Записаться на сервис</p>
                                 </a>
                             </div>
                         </div>

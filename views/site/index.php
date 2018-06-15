@@ -53,7 +53,7 @@ $this->title = Yii::$app->params['site_title'];
             <div class="center_line__button_record">
                 <a href="<?= Url::to(['site/service']) ?>" class="center_line__button_record">
                     <div>
-                        Записаться на СТО
+                        Записаться на сервис
                     </div>
                 </a>
             </div>

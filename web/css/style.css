@@ -117,8 +117,9 @@ body {
 
 .panel_top__part_link p {
     transform: skew(15deg);
-    font-size: 22px;
-    margin-left: 30px;
+    font-size: 20px;
+    margin-left: 20px;
+    top: 5px;
     font-weight: bold;
     vertical-align: middle;
     text-transform: uppercase;
@@ -178,11 +179,11 @@ body {
 }
 
 .center_line__button_record div {
-	position: fixed;
-	top: 0;
-	left: 25px;
+    position: fixed;
+    top: 0;
+    left: 15px;
     transform: skew(15deg);
-    font-size: 22px;
+    font-size: 20px;
     padding-top: 3px;
     font-weight: bold;
     vertical-align: middle;
