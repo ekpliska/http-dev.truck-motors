@@ -2,9 +2,6 @@
     use yii\helpers\Html;
     use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Sliders */
-/* @var $form yii\widgets\ActiveForm */
 ?>
 <div class="row cm-fix-height">
     <div class="col-sm-12">
@@ -60,12 +57,3 @@
         </div>
     </div>        
 </div>
-
-<?php
-$js = <<<JS
-$('#imgInput').on('change', function() {
-   console.log('TEST');
-});   
-JS;
-$this->registerJs($js, yii\web\View::POS_HEAD);
-?>

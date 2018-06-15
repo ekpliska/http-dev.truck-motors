@@ -4,9 +4,6 @@
     use yii\grid\GridView;
     use yii\widgets\Breadcrumbs;
 
-/* @var $this yii\web\View */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = Yii::$app->params['admin_panel_name'] . ' ' . 'Слайдер';
 $this->params['breadcrumbs'][] = 'Слайдер';
 ?>

@@ -47,6 +47,12 @@ $this->params['breadcrumbs'][] = 'Редактирование слайдера 
 
                     <?= $form->field($model, 'sliders_image')->fileInput()->label() ?>
                     
+                    <div class="text-center">
+                        <?php if ($model->sliders_image) : ?>
+                            <?= Html::img($model->sliders_image, ['alt' => '', 'style' => 'height: 100px;']) ?>
+                        <?php endif; ?>
+                    </div>
+                    
                     <?= $form->field($model, 'sliders_show')->checkbox()->label(false) ?>
                     <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
                         <i class="fa fa-fw fa-info-circle"></i> Отображать слайд в шапке сайта 

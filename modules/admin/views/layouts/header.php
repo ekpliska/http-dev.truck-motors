@@ -36,8 +36,8 @@
                     <li class="cm-submenu">
                         <a class="sf-news">Новости<span class="caret"></span></a>
                         <ul>
-                            <li><a href="#">Добавить новость на сайт</a></li>
-                            <li><a href="#">Все новости</a></li>
+                            <li><a href="<?= Url::to(['news/create']) ?>">Добавить новость на сайт</a></li>
+                            <li><a href="<?= Url::to(['news/index']) ?>">Все новости</a></li>
                         </ul>
                     </li>
                     <li class="cm-submenu">
@@ -61,13 +61,7 @@
     <nav class="cm-navbar cm-navbar-primary">
         <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
         <div class="cm-flex">
-<!--            <h1>Главная</h1>-->
-            <form id="cm-search" action="index.html" method="get">
-                <input type="search" name="q" autocomplete="off" placeholder="Search...">
-            </form>
-        </div>
-        <div class="pull-right">
-            <div id="cm-search-btn" class="btn btn-primary md-search-white" data-toggle="cm-search"></div>                
+            <h1>Панель управления</h1>
         </div>
         
         <div class="dropdown pull-right">
