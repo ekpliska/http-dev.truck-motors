@@ -6,6 +6,7 @@
     use app\widgets\AdvertBlock;
 
 $this->title = Yii::$app->params['site_title'];
+$first_slider = 0;
 ?>
 <?php // https://placehold.it/1200x400?text=IMAGE-2 ?>
 <!-- Слайдер  -->
@@ -16,10 +17,9 @@ $this->title = Yii::$app->params['site_title'];
             <li data-target="#myCarousel" data-slide-to="1"></li>
         </ol>    
         <div class="carousel-inner" role="listbox">
-            <?php $first_slider = 0; ?>
             <?php foreach ($sliders as $slider) : ?>
                 <?php $first_slider++; ?>
-                <div class="<?= $first_slider == 1? 'item active' : 'item' ?>">
+                <div class="<?= $first_slider == 1 ? 'item active' : 'item' ?>">
                     <img src="<?= Url::to($slider->sliders_image) ?>" alt="Image">
                     <?php if ($slider->sliders_title && $slider->sliders_text) : ?>
                         <div class="carousel-caption">

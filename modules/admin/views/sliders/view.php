@@ -46,7 +46,14 @@ $this->params['breadcrumbs'][] = 'Просмотр слайдера - ' . $model
                             'attribute' => 'Статус',
                             'value' => $model->sliders_show ? Html::img('@web/images/sf/sign-check.svg', ['alt' => '']) : Html::img('@web/images/sf/sign-delete.svg', ['alt' => '']),
                             'format' => 'raw',
-			], 
+			],
+                        [
+                            'attribute' => 'Тип слайдера',
+                            'value' => function ($data) {
+                                return $data->sliders_adverts ? '<span style="padding: 3px; font-size: 12px;" class="btn-danger">Реклама</span>' : '<span style="padding: 3px; font-size: 12px;" class="btn-primary">На сайте</span>';
+                            },
+                            'format' => 'raw',
+                        ],
                     ],
                 ]) ?>
             </div>

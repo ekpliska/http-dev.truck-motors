@@ -26,19 +26,30 @@
                             <li><a href="#">Юридические лица</a></li>
                         </ul>
                     </li>
+                    
+                    <li><a href="<?= Url::to(['menu/index']) ?>">Меню сайта</a></li>
+                    <li><a href="<?= Url::to(['/']) ?>">Основные услуги</a></li>
+                    <li><a href="<?= Url::to(['brands/index']) ?>">Поставщики</a></li>  
+                    <li><a href="<?= Url::to(['sliders/index']) ?>">Слайдер</a></li>
+                    <li><a href="<?= Url::to(['text-blocks/index']) ?>">Текстовые блоки</a></li>
+                    
                     <li class="cm-submenu">
-                        <a class="sf-box-full">Новости<span class="caret"></span></a>
+                        <a class="sf-news">Новости<span class="caret"></span></a>
                         <ul>
                             <li><a href="#">Добавить новость на сайт</a></li>
                             <li><a href="#">Все новости</a></li>
                         </ul>
                     </li>
-                    <li><a href="<?= Url::to(['menu/index']) ?>">Меню сайта</a></li>
-                    <li><a href="<?= Url::to(['brands/index']) ?>">Поставщики</a></li>  
-                    <li><a href="<?= Url::to(['sliders/index']) ?>">Слайдер</a></li>
-                    <li><a href="<?= Url::to(['text-blocks/index']) ?>">Текстовые блоки</a></li>                     
+                    <li class="cm-submenu">
+                        <a class="sf-box-full">Статьи (СОЕ)<span class="caret"></span></a>
+                        <ul>
+                            <li><a href="#">Добавить статью</a></li>
+                            <li><a href="#">Все статьи</a></li>
+                        </ul>
+                    </li>
+                    
                     <li><a href="<?= Url::to(['/']) ?>">Перейти на сайт</a></li>
-                    <li><a href="#" class="sf-lock-open">Выйти</a></li>
+                    <li><a href="#" class="sf-lock-open">Выйти</a></li>                    
                 </ul>
             </div>
         </div>

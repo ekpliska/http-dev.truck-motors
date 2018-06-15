@@ -1,6 +1,7 @@
 <?php
     namespace app\widgets;
     use yii\bootstrap\Widget;
+    use app\models\Sliders;
 ?>
 <?php
 /**
@@ -14,7 +15,8 @@ class AdvertBlock extends Widget
     }
 
     public function run() {
-        return $this->render('advertblock\advertblock');
+        $sliders_advert = Sliders::find()->andWhere(['sliders_show' => false, 'sliders_adverts' => true])->all();        
+        return $this->render('advertblock\advertblock', ['sliders_advert' => $sliders_advert]);
     }
 }
 

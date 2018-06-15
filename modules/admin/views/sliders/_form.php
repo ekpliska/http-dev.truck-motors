@@ -37,9 +37,15 @@
 
                 <?= $form->field($model, 'sliders_image')->fileInput(['id' => 'imgInput'])->label() ?>
                 
-                <img id="image" src="#" alt="" />
-                
                 <?= $form->field($model, 'sliders_show')->checkbox()->label(false) ?>
+                <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
+                    <i class="fa fa-fw fa-info-circle"></i> Отображать слайд в шапке сайта 
+                </div> 
+                
+                <?= $form->field($model, 'sliders_adverts')->checkbox()->label(false) ?>
+                <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
+                    <i class="fa fa-fw fa-info-circle"></i> Для слайдера с рекламой
+                </div> 
                 
             </div>
 

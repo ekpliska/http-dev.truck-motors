@@ -5154,7 +5154,7 @@ a.thumbnail.active {
   color: #333333;
 }
 .alert {
-  padding: 15px;
+  padding: 5px;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 2px;
@@ -7386,6 +7386,7 @@ td .progress {
 }
 .alert.shadowed.alert-info {
   border-color: #7cd2e3;
+  font-size: 11px;
 }
 .alert.shadowed.alert-success {
   border-color: #aed48e;

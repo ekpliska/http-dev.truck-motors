@@ -64,8 +64,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $sliders = Sliders::find()->andWhere(['sliders_show' => true])->all();
-        return $this->render('index', ['sliders' => $sliders]);
+        $sliders = Sliders::find()->andWhere(['sliders_show' => true, 'sliders_adverts' => false])->all();
+        return $this->render('index', ['sliders' => $sliders, 'sliders_advert' => $sliders_advert]);
     }
 
     /*

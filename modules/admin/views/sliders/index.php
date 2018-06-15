@@ -39,6 +39,13 @@ $this->params['breadcrumbs'][] = 'Слайдер';
                             'headerOptions' => ['style' => 'width: 10%;'],
                         ],
                         'sliders_name',
+                        [
+                            'attribute' => 'Тип слайдера',
+                            'value' => function ($data) {
+                                return $data->sliders_adverts ? '<span style="padding: 3px; font-size: 12px;" class="btn-danger">Реклама</span>' : '<span style="padding: 3px; font-size: 12px;" class="btn-primary">На сайте</span>';
+                            },
+                            'format' => 'raw',
+                        ],
 
                         ['class' => 'yii\grid\ActionColumn'],
                     ],

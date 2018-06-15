@@ -5,7 +5,7 @@
     use yii\widgets\ActiveForm;
 
 $this->title = Yii::$app->params['admin_panel_name'] . ' ' . 'Слайдер';
-$this->params['breadcrumbs'][] = ['label' => 'Sliders', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Слайдер', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->sliders_name, 'url' => ['view', 'id' => $model->sliders_id]];
 $this->params['breadcrumbs'][] = 'Редактирование слайдера - ' . $model->sliders_name;
 ?>
@@ -48,6 +48,14 @@ $this->params['breadcrumbs'][] = 'Редактирование слайдера 
                     <?= $form->field($model, 'sliders_image')->fileInput()->label() ?>
                     
                     <?= $form->field($model, 'sliders_show')->checkbox()->label(false) ?>
+                    <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
+                        <i class="fa fa-fw fa-info-circle"></i> Отображать слайд в шапке сайта 
+                    </div> 
+                    
+                    <?= $form->field($model, 'sliders_adverts')->checkbox()->label(false) ?>
+                    <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
+                        <i class="fa fa-fw fa-info-circle"></i> Для слайдера с рекламой
+                    </div> 
 
                 </div>
 

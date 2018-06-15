@@ -14,7 +14,7 @@ class SlidersForm extends Model
     public $sliders_text;
     public $sliders_name;
     public $sliders_show;
-    public $del_image;
+    public $sliders_adverts;
 
 
 
@@ -28,18 +28,19 @@ class SlidersForm extends Model
             [['sliders_name'], 'string', 'max' => 70],
             [['sliders_image'], 'file', 'extensions' => 'png, jpg, jpeg'],
             [['sliders_image'], 'image', 'maxWidth' => 3509, 'maxHeight' => 1020],
-            [['del_image'], 'boolean'],
+            [['sliders_adverts'], 'integer'],
         ];
     }
 
     public function attributeLabels()
     {
         return [
-            'sliders_image' => 'Sliders Image',
-            'sliders_title' => 'Sliders Title',
-            'sliders_text' => 'Sliders Text',
-            'sliders_name' => 'Sliders Name',
-            'sliders_show' => 'Sliders Show',
+            'sliders_image' => 'Изображение',
+            'sliders_title' => 'Заголовок слайда',
+            'sliders_text' => 'Текст под заголовком',
+            'sliders_name' => 'Название слайда',
+            'sliders_show' => 'Показывать на сайте',
+            'sliders_adverts' => 'Слайд для рекламы',
         ];
     }
 }
