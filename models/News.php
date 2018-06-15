@@ -2,33 +2,20 @@
 
     namespace app\models;
     use Yii;
+    use yii\db\ActiveRecord;
 
-/**
- * This is the model class for table "tbl_news".
- *
- * @property int $news_id
- * @property string $news_name
- * @property string $news_slug
- * @property string $news_image
- * @property string $news_text
- * @property string $news_author
- * @property string $date_create
- * @property string $date_update
- * @property int $news_show
- */
-class News extends \yii\db\ActiveRecord
+/*
+ * Новости
+ */    
+    
+class News extends ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+    
     public static function tableName()
     {
         return 'tbl_news';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
@@ -36,27 +23,25 @@ class News extends \yii\db\ActiveRecord
             [['date_create', 'date_update'], 'safe'],
             [['news_show'], 'integer'],
             [['news_name', 'news_image'], 'string', 'max' => 100],
-            [['news_slug'], 'string', 'max' => 255],
             [['news_text'], 'string', 'max' => 2000],
             [['news_author'], 'string', 'max' => 70],
+            [['news_title', 'news_keywords'], 'string', 'max' => 100],
+            [['news_descriptions'], 'string', 'max' => 255],
+            [['news_date'], 'date', 'format' => 'php:Y-m-d'],
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
+    
+    public function beforeSave($insert)
     {
-        return [
-            'news_id' => 'News ID',
-            'news_name' => 'News Name',
-            'news_slug' => 'News Slug',
-            'news_image' => 'News Image',
-            'news_text' => 'News Text',
-            'news_author' => 'News Author',
-            'date_create' => 'Date Create',
-            'date_update' => 'Date Update',
-            'news_show' => 'News Show',
-        ];
-    }
+        if (parent::beforeSave($insert)) {
+            if($insert)
+                $this->date_create = date('Y-m-d H:i:s');
+                $this->date_update = date('Y-m-d H:i:s');
+            return true;
+        } else {
+            return false;            
+        }        
+    }    
+    
 }

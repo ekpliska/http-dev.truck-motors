@@ -434,6 +434,10 @@ body {
     margin-top: 10px;
 }
 
+.site-news {
+    margin-top: 10px;
+}
+
 /* end styles for site-service sections */
 
 /*===============================*/
@@ -1099,4 +1103,47 @@ nav a {
 h5.modal-title.modal-title__brand {
     font-size: 26px;
     color: #0077b1;
+}
+
+/*===============================*/
+/*            News               */
+/*===============================*/
+
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem!important;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.box-shadow {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+}
+
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.btn-group, .btn-group-vertical {
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
 }

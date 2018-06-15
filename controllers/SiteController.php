@@ -10,6 +10,7 @@
     use app\models\Menu;
     use app\models\LoginForm;
     use app\models\Sliders;
+    use app\models\News;
 
 class SiteController extends Controller
 {
@@ -122,6 +123,16 @@ class SiteController extends Controller
             }
         }
         return $this->render('record-leg', ['model' => $model]);
+    }
+    
+    /*
+     * Страница "Новостей" 
+     */
+    public function actionNews() {
+        $news = News::find()->andWhere(['news_show' => true])->all();
+        
+        return $this->render('news', ['news' => $news]);
+        
     }
     
     /*
