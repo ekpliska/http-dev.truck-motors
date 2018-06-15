@@ -9,6 +9,7 @@
     use app\models\RecordsLeg;
     use app\models\Menu;
     use app\models\LoginForm;
+    use app\models\Sliders;
 
 class SiteController extends Controller
 {
@@ -63,7 +64,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $sliders = Sliders::find()->andWhere(['sliders_show' => true])->all();
+        return $this->render('index', ['sliders' => $sliders]);
     }
 
     /*

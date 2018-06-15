@@ -1093,3 +1093,9 @@ nav a {
 /*    Style for main-services    */
 /*===============================*/
 /* */
+
+
+h5.modal-title.modal-title__brand {
+    font-size: 26px;
+    color: #0077b1;
+}

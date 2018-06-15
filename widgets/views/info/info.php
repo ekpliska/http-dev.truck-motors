@@ -8,7 +8,6 @@
 ?>
 <div class="panel panel-info panel_on_form">
     <div class="panel-body">
-        Информация о записи в рабочие и выходны дни
-        <br /><br /><br /><br /><br /><br /><br />
+        <?= $text_block->text_blocks_text; ?>
     </div>
 </div>

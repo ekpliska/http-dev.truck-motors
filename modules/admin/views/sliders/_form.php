@@ -11,7 +11,7 @@
         <div class="row">
             <?php
                 $form = ActiveForm::begin([
-                    'id' => 'record-ind',
+                    'id' => 'slider-form',
                     'enableClientValidation' => true,
                     'enableAjaxValidation' => false,
                     'fieldConfig' => [
@@ -19,7 +19,7 @@
                     ],
                     'options' => [
                         'enctype' => 'multipart/form-data'
-                    ],                    
+                    ],
                 ])
             ?>
             
@@ -35,14 +35,9 @@
 
             <div class="col-sm-6 col-xs-12">
 
-                <?= $form->field($model, 'file')->fileInput(['id' => 'file', 'name' => 'file'])->label() ?>
+                <?= $form->field($model, 'sliders_image')->fileInput(['id' => 'imgInput'])->label() ?>
                 
-                <?php if (!$model->isNewRecord) : ?>
-                    <div class="row text-center">
-                        <?= Html::img($model->sliders_image, ['alt' => '', 'style' => 'height: 200px;']) ?>
-                    </div>
-                    <?= $form->field($model, 'del_img')->checkbox()->label(false) ?>
-                <?php endif; ?>
+                <img id="image" src="#" alt="" />
                 
                 <?= $form->field($model, 'sliders_show')->checkbox()->label(false) ?>
                 
@@ -50,7 +45,7 @@
 
             <div class="col-sm-12 col-xs-12 text-center">
                 <div class="form-group">
-                    <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                    <?= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>
                 </div>
             </div>
 
@@ -59,3 +54,12 @@
         </div>
     </div>        
 </div>
+
+<?php
+$js = <<<JS
+$('#imgInput').on('change', function() {
+   console.log('TEST');
+});   
+JS;
+$this->registerJs($js, yii\web\View::POS_HEAD);
+?>

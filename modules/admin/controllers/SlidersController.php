@@ -9,6 +9,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use app\modules\admin\models\Sliders;
+use app\modules\admin\models\SlidersForm;
 
 /**
  * SlidersController implements the CRUD actions for Sliders model.
@@ -57,29 +58,32 @@ class SlidersController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Sliders();
-
-//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['view', 'id' => $model->sliders_id]);
-//        }
+        $model = new SlidersForm();
 
         if ($model->load(Yii::$app->request->post())) {
-            $file = UploadedFile::getInstance($model, 'file');
-            $model->file = $file;
+            $file = UploadedFile::getInstance($model, 'sliders_image');
+            $model->sliders_image = $file;
+            
             $dir = Yii::getAlias('images/slider/');
-            $fileName = md5(strtotime('now')). '_' . $model->file->baseName . '.' . $model->file->extension;
-            $model->file->saveAs($dir . $fileName);
-            $model->file = $fileName;
-            $model->sliders_image = '/' . $dir . $fileName;            
+            $file_name = md5(strtotime('now')). '_' . $model->sliders_image->baseName . '.' . $model->sliders_image->extension;
+            $model->sliders_image->saveAs($dir . $file_name);
+            
+            $data_model = new Sliders();
+            $data_model->sliders_name = $model->sliders_name;
+            $data_model->sliders_title = $model->sliders_title;
+            $data_model->sliders_text = $model->sliders_text;
+            $data_model->sliders_image = '/' . $dir . $file_name;
+            $data_model->sliders_show = $model->sliders_show;
+            
+            if ($data_model->validate() && $data_model->save()) {
+                return $this->redirect(['view', 'id' => $data_model->sliders_id]);
+            }
         }
-        
-        if ($model->save()) {
-            return $this->redirect(['view', 'id' => $model->sliders_id]);
-        }
-        
+
         return $this->render('create', [
             'model' => $model,
         ]);
+
     }
 
     /**
@@ -87,15 +91,25 @@ class SlidersController extends Controller
      */
     public function actionUpdate($id)
     {
+        
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->sliders_id]);
+        
+        if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model, 'sliders_image');
+            $model->sliders_image = $file;
+            
+            $dir = Yii::getAlias('images/brands_logo/');
+            $file_name = $model->sliders_image->baseName . '.' . $model->sliders_image->extension;
+            $model->sliders_image->saveAs($dir . $file_name);
+            
+            $model->sliders_image = '/' . $dir . $file_name;
+                   
+            if ($model->validate() && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->sliders_id]);                
+            }
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        return $this->render('update', ['model' => $model]);
+        
     }
 
     /**

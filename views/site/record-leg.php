@@ -181,7 +181,7 @@ $this->params['breadcrumbs'][] = 'Юридическое лицo';
             <?php ActiveForm::end(); ?>
         </div>
         
-        <?= Info::widget() ?>       
+        <?= Info::widget(['alias_block' => 'schedule_block']) ?>       
         
     </div>
 </section>

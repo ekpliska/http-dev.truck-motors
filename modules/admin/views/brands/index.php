@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = 'Поставщики';
                         [
                             'attribute'=>'brands_image',
                             'value'=>$model->brands_image,
-                            'format' => ['image', ['height' => '100']],
+                            'format' => ['image', ['height' => '50']],
                         ],
 
                         ['class' => 'yii\grid\ActionColumn'],

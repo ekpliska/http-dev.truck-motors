@@ -2,9 +2,7 @@
 
     use yii\helpers\Html;
     use yii\widgets\Breadcrumbs;
-
-/* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Sliders */
+    use yii\widgets\ActiveForm;
 
 $this->title = Yii::$app->params['admin_panel_name'] . ' ' . 'Слайдер';
 $this->params['breadcrumbs'][] = ['label' => 'Sliders', 'url' => ['index']];
@@ -21,9 +19,45 @@ $this->params['breadcrumbs'][] = 'Редактирование слайдера 
                     ])
                 ?>
 
-                <?= $this->render('_form', [
-                    'model' => $model,
-                ]) ?>
+                <?php
+                    $form = ActiveForm::begin([
+                        'id' => 'slider-form',
+                        'enableClientValidation' => true,
+                        'enableAjaxValidation' => false,
+                        'fieldConfig' => [
+                            'template' => '{label}{input}{error}',
+                        ],
+                        'options' => [
+                            'enctype' => 'multipart/form-data'
+                        ],
+                    ])
+                ?>
+            
+                <div class="col-sm-6 col-xs-12">
+
+                    <?= $form->field($model, 'sliders_name')->input('text', ['placeholder' => $model->getAttributeLabel('sliders_name')])->label() ?>
+
+                    <?= $form->field($model, 'sliders_title')->input('text', ['placeholder' => $model->getAttributeLabel('sliders_title')])->label() ?>
+
+                    <?= $form->field($model, 'sliders_text')->input('text', ['placeholder' => $model->getAttributeLabel('sliders_text')])->label() ?>
+
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+
+                    <?= $form->field($model, 'sliders_image')->fileInput()->label() ?>
+                    
+                    <?= $form->field($model, 'sliders_show')->checkbox()->label(false) ?>
+
+                </div>
+
+                <div class="col-sm-12 col-xs-12 text-center">
+                    <div class="form-group">
+                        <?= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>
+                    </div>
+                </div>
+
+                <?php ActiveForm::end(); ?>
         
             </div>
         </div>

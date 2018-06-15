@@ -31,9 +31,9 @@ class Brands extends \yii\db\ActiveRecord
     {
         return [
             'brands_id' => 'Brands ID',
-            'brands_name' => 'Brands Name',
-            'brands_image' => 'Brands Image',
-            'brands_descriptions' => 'Brands Descriptions',
+            'brands_name' => 'Название',
+            'brands_image' => 'Изображение',
+            'brands_descriptions' => 'Описание',
         ];
     }
 }

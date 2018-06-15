@@ -28,6 +28,7 @@ class BrandsController extends Controller
         ];
     }
 
+    // Формирование главной страницы "Поставшики"
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
@@ -39,6 +40,7 @@ class BrandsController extends Controller
         ]);
     }
 
+    // Просмотр записи
     public function actionView($id)
     {
         return $this->render('view', [
@@ -46,6 +48,7 @@ class BrandsController extends Controller
         ]);
     }
 
+    // Создание записи    
     public function actionCreate()
     {
         $model = new BrandsForm();
@@ -55,7 +58,7 @@ class BrandsController extends Controller
             $model->brands_image = $file;
             
             $dir = Yii::getAlias('images/brands_logo/');
-            $file_name = $model->brands_image->baseName . '.' . $model->brands_image->extension;
+            $file_name = md5(strtotime('now')). '_' . $model->brands_image->baseName . '.' . $model->brands_image->extension;
             $model->brands_image->saveAs($dir . $file_name);
             
             $data_model = new Brands();
@@ -73,9 +76,10 @@ class BrandsController extends Controller
         ]);
     }
 
+    // Редактирование записи
     public function actionUpdate($id)
     {
-        $model = Brands::findOne(['brands_id' => $id]);
+        $model = $this->findModel($id);
         
         if ($model->load(Yii::$app->request->post())) {
             $file = UploadedFile::getInstance($model, 'brands_image');
@@ -94,6 +98,7 @@ class BrandsController extends Controller
         return $this->render('update', ['model' => $model]);
     }
 
+    // Удаление записи
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();

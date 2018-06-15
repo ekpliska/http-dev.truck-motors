@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = 'Редактирование записи - ' 
                 ?>
                 
                 
-                <?php
+            <?php
                 $form = ActiveForm::begin([
                     'id' => 'brand-form',
                     'enableClientValidation' => true,
@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = 'Редактирование записи - ' 
                     
                     <div class="text-center">
                         <?php if ($model->brands_image) : ?>
-                            <?= Html::img($model->brands_image, ['alt' => '']) ?>
+                            <?= Html::img($model->brands_image, ['alt' => '', 'style' => 'height: 100px;']) ?>
                         <?php endif; ?>
                     </div>
 

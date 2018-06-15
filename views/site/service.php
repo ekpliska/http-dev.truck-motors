@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = 'Запись на СТО';
             </div>
         </div>
         
-        <?= Info::widget() ?> 
+        <?= Info::widget(['alias_block' => 'schedule_block']) ?> 
         
         <?= MainServices::widget(); ?>
     </div>                
