@@ -33,7 +33,7 @@
                         <a class="sf-light-bulb">Основные услуги<span class="caret"></span></a>
                         <ul>
                             <li><a href="<?= Url::to(['basic-services/index']) ?>">Все услуги</a></li>
-                            <li><a href="<?= Url::to(['/']) ?>">Фото галерея</a></li>
+                            <li><a href="<?= Url::to(['photo-services/index']) ?>">Фото галерея</a></li>
                         </ul>
                     </li>                    
                     

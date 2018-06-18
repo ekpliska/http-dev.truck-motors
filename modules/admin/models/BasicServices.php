@@ -4,6 +4,7 @@
     use yii\db\ActiveRecord;
     use yii\behaviors\SluggableBehavior;
     use Yii;
+    use app\modules\admin\models\PhotoServices;
 
 /**
  * Основные услуги
@@ -34,6 +35,10 @@ class BasicServices extends ActiveRecord
             [['basic_services_preview'], 'string', 'max' => 255],
             [['basic_services_preview_h'], 'string', 'max' => 255],            
         ];
+    }
+    
+    public function getPhotoServices() {
+        return $this->hasMany(PhotoServices::className(), ['photo_services_id_name' => 'basic_services_id']);
     }
     
     public function attributeLabels()

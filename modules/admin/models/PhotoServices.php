@@ -1,17 +1,14 @@
 <?php
 
-namespace app\models;
-
-use Yii;
+    namespace app\modules\admin\models;
+    use Yii;
+    use yii\db\ActiveRecord;
+    use app\modules\admin\models\BasicServices;
 
 /**
- * This is the model class for table "tbl_photo_services".
- *
- * @property int $photo_services_id
- * @property int $photo_services_id_name
- * @property string $photo_services_path
+ * Фото галлерея, основные услуги
  */
-class PhotoServices extends \yii\db\ActiveRecord
+class PhotoServices extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -31,7 +28,11 @@ class PhotoServices extends \yii\db\ActiveRecord
             [['photo_services_path'], 'string', 'max' => 1000],
         ];
     }
-
+    
+    public function getBasicServices() {
+        return $this->hasOne(BasicServices::className(), ['basic_services_id' => 'photo_services_id_name']);
+    }
+    
     /**
      * {@inheritdoc}
      */
