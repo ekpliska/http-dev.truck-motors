@@ -27,11 +27,11 @@
                         </ul>
                     </li>
                     
-                    <li><a href="<?= Url::to(['menu/index']) ?>">Меню сайта</a></li>
-                    <li><a href="<?= Url::to(['/']) ?>">Основные услуги</a></li>
-                    <li><a href="<?= Url::to(['brands/index']) ?>">Поставщики</a></li>  
-                    <li><a href="<?= Url::to(['sliders/index']) ?>">Слайдер</a></li>
-                    <li><a href="<?= Url::to(['text-blocks/index']) ?>">Текстовые блоки</a></li>
+                    <li><a class="sf-tag" href="<?= Url::to(['menu/index']) ?>">Меню сайта</a></li>
+                    <li><a class="sf-light-bulb" href="<?= Url::to(['/']) ?>">Основные услуги</a></li>
+                    <li><a class="sf-money" href="<?= Url::to(['brands/index']) ?>">Поставщики</a></li>  
+                    <li><a class="sf-file-picture" href="<?= Url::to(['sliders/index']) ?>">Слайдер</a></li>
+                    <li><a class="sf-layers" href="<?= Url::to(['text-blocks/index']) ?>">Текстовые блоки</a></li>
                     
                     <li class="cm-submenu">
                         <a class="sf-news">Новости<span class="caret"></span></a>
@@ -41,14 +41,14 @@
                         </ul>
                     </li>
                     <li class="cm-submenu">
-                        <a class="sf-box-full">Статьи (СОЕ)<span class="caret"></span></a>
+                        <a class="sf-window-layout">Статьи (СОЕ)<span class="caret"></span></a>
                         <ul>
-                            <li><a href="#">Добавить статью</a></li>
-                            <li><a href="#">Все статьи</a></li>
+                            <li><a href="<?= Url::to(['articles/create']) ?>">Добавить статью</a></li>
+                            <li><a href="<?= Url::to(['articles/index']) ?>">Все статьи</a></li>
                         </ul>
                     </li>
                     
-                    <li><a href="<?= Url::to(['/']) ?>">Перейти на сайт</a></li>
+                    <li><a class="sf-globe" href="<?= Url::to(['/']) ?>">Перейти на сайт</a></li>
                     <li><a href="#" class="sf-lock-open">Выйти</a></li>                    
                 </ul>
             </div>

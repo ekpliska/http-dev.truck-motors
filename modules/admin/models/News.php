@@ -24,29 +24,24 @@
 class News extends ActiveRecord
 {
     
-	public function behaviors()
-	{
-            return [
-                [
-                    'class' => TimestampBehavior::className(),
-                    'attributes' => [
-                        ActiveRecord::EVENT_BEFORE_INSERT => ['date_create', 'date_update'],
-                        ActiveRecord::EVENT_BEFORE_UPDATE =>  ['date_create', 'date_update'],
-                        'value' => function() { return date('U'); },
-                    ],
-		],
-                [
-                    'class' => SluggableBehavior::className(),
-                    'attribute' => 'news_name',
-                ]
-            ];
-        }
-	
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['date_create', 'date_update'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE =>  ['date_create', 'date_update'],
+                    'value' => function() { return date('U'); },
+                ],
+            ],
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'news_name',
+            ]
+        ];
+    }
     
-    
-    /**
-     * {@inheritdoc}
-     */
     public static function tableName()
     {
         return 'tbl_news';
@@ -100,7 +95,8 @@ class News extends ActiveRecord
             'news_show' => 'Статус',
             'news_title' => 'Titile (meta tag)',
             'news_keywords' => 'Keywords (meta tag)',
-            'news_descriptions' => 'Description  (meta tag)',            
+            'news_descriptions' => 'Description  (meta tag)',
+            'slug' => 'Идентификатор новости',
         ];
     }
 }

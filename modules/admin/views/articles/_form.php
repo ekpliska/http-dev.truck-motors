@@ -11,7 +11,7 @@
         <div class="row">
             <?php
                 $form = ActiveForm::begin([
-                    'id' => 'news-form',
+                    'id' => 'articles-form',
                     'enableClientValidation' => true,
                     'enableAjaxValidation' => false,
                     'fieldConfig' => [
@@ -24,13 +24,13 @@
             ?>
             
             <div class="col-sm-6 col-xs-12">
-                <?= $form->field($model, 'news_name')->textInput(['maxlength' => true]) ?>                
+                <?= $form->field($model, 'articles_name')->textInput(['maxlength' => true]) ?>                
             </div> 
 
             <div class="col-sm-6 col-xs-12">
                 
                 <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
-                <?= $form->field($model, 'news_date')
+                <?= $form->field($model, 'articles_date')
                         ->widget(MaskedInput::className(), [
                             'mask' => '9999-99-99',
                             ])
@@ -43,7 +43,7 @@
             </div>             
                 
             <div class="col-sm-12 col-xs-12">                
-                <?= $form->field($model, 'news_text')->widget(CKEditor::className(),[
+                <?= $form->field($model, 'articles_text')->widget(CKEditor::className(),[
                     'editorOptions' => [
                         'preset' => 'standard', 
                         'inline' => false, 
@@ -55,20 +55,20 @@
             
             <div class="col-sm-6 col-xs-12">
                 <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
-                <?= $form->field($model, 'news_image')->fileInput(['id' => 'imgInput'])->label() ?>
-                    <i class="fa fa-fw fa-info-circle"></i> Размер превью для новости <strong>510 &times; 470</strong>
+                <?= $form->field($model, 'articles_image')->fileInput(['id' => 'imgInput'])->label() ?>
+                    <i class="fa fa-fw fa-info-circle"></i> Размер превью для статьи <strong>510 &times; 470</strong>
                 </div> 
             </div>            
             
             <div class="col-sm-6 col-xs-12">
                 <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
-                    <?= $form->field($model, 'news_show')
+                    <?= $form->field($model, 'articles_show')
                         ->checkbox(['checked ' => true])
                         ->label(false) 
                     ?>
-                    <i class="fa fa-fw fa-info-circle"></i> Выводить новость на сайте
+                    <i class="fa fa-fw fa-info-circle"></i> Показывать статью на сайте
                 </div>
-                <?= $form->field($model, 'news_author')
+                <?= $form->field($model, 'articles_author')
                         ->textInput([
                             'readOnly' => true, 
                             'maxlength' => true,
@@ -79,9 +79,9 @@
            
             
             <div class="col-sm-12 col-xs-12">
-                <?= $form->field($model, 'news_title')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($model, 'news_keywords')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($model, 'news_descriptions')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'articles_title')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'articles_keywords')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'articles_descriptions')->textInput(['maxlength' => true]) ?>
             </div>
                         
             <div class="col-sm-12 col-xs-12 text-center">

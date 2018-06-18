@@ -4,9 +4,9 @@
     use yii\widgets\DetailView;
     use yii\widgets\Breadcrumbs;
 
-$this->title = Yii::$app->params['admin_panel_name'] . ' ' . 'Новости';
-$this->params['breadcrumbs'][] = ['label' => 'Новости', 'url' => ['index']];
-$this->params['breadcrumbs'][] = 'Просмотр новости - ' . $model->news_name;
+$this->title = Yii::$app->params['admin_panel_name'] . ' ' . 'Статьи';
+$this->params['breadcrumbs'][] = ['label' => 'Статьи', 'url' => ['index']];
+$this->params['breadcrumbs'][] = 'Просмотр статьи - ' . $model->articles_name;
 ?>
 <div class="row cm-fix-height">
     <div class="col-sm-12">
@@ -19,8 +19,8 @@ $this->params['breadcrumbs'][] = 'Просмотр новости - ' . $model->
                 ?>
 
                 <p>
-                    <?= Html::a('Редактировать', ['update', 'id' => $model->news_id], ['class' => 'btn btn-primary']) ?>
-                    <?= Html::a('Удалить', ['delete', 'id' => $model->news_id], [
+                    <?= Html::a('Редактировать', ['update', 'id' => $model->articles_id], ['class' => 'btn btn-primary']) ?>
+                    <?= Html::a('Удалить', ['delete', 'id' => $model->articles_id], [
                         'class' => 'btn btn-danger',
                         'data' => [
                             'confirm' => 'Вы действительно хотите удалить данный слайд?',
@@ -32,34 +32,36 @@ $this->params['breadcrumbs'][] = 'Просмотр новости - ' . $model->
                 <?= DetailView::widget([
                     'model' => $model,
                     'attributes' => [
-                        'news_name',
+                        
+                        'articles_name',
                         [
-                            'attribute'=>'news_image',
-                            'value'=>$model->news_image,
+                            'attribute'=>'articles_image',
+                            'value'=>$model->articles_image,
                             'format' => ['image', ['height' => '100']],
                         ],
                         [
-                            'attribute' => 'news_text',
-                            'value' => $model->news_text,
+                            'attribute' => 'articles_text',
+                            'value' => $model->articles_text,
                             'format' => 'raw',
 			],
-                        'news_author',
-                        'news_date:date',
+                        'articles_author',
+                        'articles_date:date',
                         [
                             'attribute' => 'Статус',
-                            'value' => $model->news_show ? Html::img('@web/images/sf/sign-check.svg', ['alt' => '']) : Html::img('@web/images/sf/sign-delete.svg', ['alt' => '']),
+                            'value' => $model->articles_show ? Html::img('@web/images/sf/sign-check.svg', ['alt' => '']) : Html::img('@web/images/sf/sign-delete.svg', ['alt' => '']),
                             'format' => 'raw',
 			],
                         'date_create:date',
                         'date_update:date',
-                        'news_title',
-                        'news_keywords',
-                        'news_descriptions',
+                        'articles_title',
+                        'articles_keywords',
+                        'articles_descriptions',
                         'slug',
                     ],
                 ]) ?>
+
                 
             </div>
         </div>
     </div>
-</div>
+</div>                
