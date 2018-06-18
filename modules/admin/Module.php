@@ -3,6 +3,7 @@
     namespace app\modules\admin;
     use yii\base\Module as CoreModule;
     use yii\filters\AccessControl;
+    use yii\web\ErrorHandler;
 
 class Module extends CoreModule
 {
@@ -24,13 +25,19 @@ class Module extends CoreModule
         ];
     }    
     
-    /**
-     * {@inheritdoc}
-     */
     public function init()
     {
         parent::init();
+        \Yii::configure($this, [
+            'components' => [
+                'errorHandler' => [
+                    'class' => ErrorHandler::className(),
+                ]
+            ],
+        ]);
 
-        // custom initialization code goes here
+        $handler = $this->get('errorHandler');
+        \Yii::$app->set('errorHandler', $handler);
+        $handler->register();
     }
 }

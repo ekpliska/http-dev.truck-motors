@@ -38,18 +38,22 @@ $this->params['breadcrumbs'][] = 'Редактирование записи - ' 
 
                     <?= $form->field($model, 'brands_name')->textInput(['maxlength' => true]) ?>
 
-                    <?= $form->field($model, 'brands_descriptions')->textInput(['maxlength' => true]) ?>
+                    <?= $form->field($model, 'brands_descriptions')->textarea(['rows' => '6']) ?>
 
                 </div>
 
                 <div class="col-sm-6 col-xs-12">
 
-                    <?= $form->field($model, 'brands_image')->fileInput() ?>
+                    <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
+                        <i class="fa fa-fw fa-info-circle"></i> Размер превью <strong>458 &times; 344</strong>
                     
-                    <div class="text-center">
-                        <?php if ($model->brands_image) : ?>
-                            <?= Html::img($model->brands_image, ['alt' => '', 'style' => 'height: 100px;']) ?>
-                        <?php endif; ?>
+                        <?= $form->field($model, 'brands_image')->fileInput() ?>
+
+                        <div class="text-center">
+                            <?php if ($model->brands_image) : ?>
+                                <?= Html::img($model->brands_image, ['alt' => '', 'style' => 'height: 100px;']) ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
 
                 </div>

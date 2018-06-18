@@ -16,4 +16,8 @@ class AdminController extends Controller
         return $this->render('menu-settings');
     }
     
+    public function actionError() {
+        return $this->redirect('error');
+    }
+    
 }

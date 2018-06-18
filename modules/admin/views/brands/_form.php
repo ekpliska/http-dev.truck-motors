@@ -30,13 +30,18 @@
 
                     <?= $form->field($model, 'brands_name')->textInput(['maxlength' => true]) ?>
 
-                    <?= $form->field($model, 'brands_descriptions')->textInput(['maxlength' => true]) ?>
+                    <?= $form->field($model, 'brands_descriptions')->textarea(['rows' => '6']) ?>
 
                 </div>
 
                 <div class="col-sm-6 col-xs-12">
 
+                    <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
+                        <i class="fa fa-fw fa-info-circle"></i> Размер превью <strong>458 &times; 344</strong>
+                    
                     <?= $form->field($model, 'brands_image')->fileInput() ?>
+                        
+                    </div> 
                     
                 </div>
 

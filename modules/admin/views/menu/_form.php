@@ -42,24 +42,24 @@
                 <?= $form->field($model, 'menu_keywords')->input('text', ['placeholder' => $model->getAttributeLabel('menu_keywords')])->label() ?>
                 
                 <?= $form->field($model, 'menu_description')->textarea(['rows' => '5', 'maxlength' => true]) ?>
-                        
-                <?= $form->field($model, 'menu_show')
-                        ->checkbox([
-                            'uncheck' => false,
-                            'value' => '1',
-                        ])
-                        ->label(false)
-                ?>
-
-                <?= $form->field($model, 'menu_footer')
-                        ->checkbox([
-                            'uncheck' => false,
-                            'value' => '1',
-                        ])
-                        ->label(false)
-                ?>
-                        
+                
+                <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
+                    <i class="fa fa-fw fa-info-circle"></i> Отображать пункт меню в хедере на сайте
+                    <?= $form->field($model, 'menu_show')
+                            ->checkbox()
+                            ->label(false)
+                    ?>
                 </div>
+
+                <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
+                    <i class="fa fa-fw fa-info-circle"></i> Отображать пункт меню в футере на сайте
+                    <?= $form->field($model, 'menu_footer')
+                            ->checkbox()
+                            ->label(false)
+                    ?>
+                </div>
+                        
+            </div>
 
             <div class="col-sm-12 col-xs-12 text-center">
                 <div class="form-group">

@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = 'Редактирование статьи - ' 
                 <div class="col-sm-6 col-xs-12">
                     <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
                     <?= $form->field($model, 'articles_image')->fileInput(['id' => 'imgInput'])->label() ?>
-                        <i class="fa fa-fw fa-info-circle"></i> Размер превью для новости <strong>510 &times; 470</strong>                   
+                        <i class="fa fa-fw fa-info-circle"></i> Размер превью для статьи <strong>510 &times; 470</strong>                   
                         <div class="text-center">
                             <?php if ($model->articles_image) : ?>
                                 <?= Html::img($model->articles_image, ['alt' => '', 'style' => 'height: 100px;']) ?>
@@ -83,7 +83,7 @@ $this->params['breadcrumbs'][] = 'Редактирование статьи - ' 
                             ->checkbox(['checked ' => true])
                             ->label(false) 
                         ?>
-                        <i class="fa fa-fw fa-info-circle"></i> Выводить новость на сайте
+                        <i class="fa fa-fw fa-info-circle"></i> Показывать статью на сайте
                     </div>
                     <?= $form->field($model, 'articles_author')->textInput(['readOnly' => true]) ?>
                 </div>

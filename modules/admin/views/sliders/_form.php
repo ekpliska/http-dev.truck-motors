@@ -32,16 +32,21 @@
 
             <div class="col-sm-6 col-xs-12">
 
-                <?= $form->field($model, 'sliders_image')->fileInput(['id' => 'imgInput'])->label() ?>
+                <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
+                    <i class="fa fa-fw fa-info-circle"></i> Максимальный размер изображения <strong>3509 &times; 1020</strong>
+                    <?= $form->field($model, 'sliders_image')->fileInput(['id' => 'imgInput'])->label() ?>
+                </div>
                 
-                <?= $form->field($model, 'sliders_show')->checkbox()->label(false) ?>
+                
                 <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
                     <i class="fa fa-fw fa-info-circle"></i> Отображать слайд в шапке сайта 
+                    <?= $form->field($model, 'sliders_show')->checkbox()->label(false) ?>
                 </div> 
                 
-                <?= $form->field($model, 'sliders_adverts')->checkbox()->label(false) ?>
+                
                 <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
                     <i class="fa fa-fw fa-info-circle"></i> Для слайдера с рекламой
+                    <?= $form->field($model, 'sliders_adverts')->checkbox()->label(false) ?>
                 </div> 
                 
             </div>

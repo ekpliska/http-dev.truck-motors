@@ -66,7 +66,7 @@
                         ->checkbox(['checked ' => true])
                         ->label(false) 
                     ?>
-                    <i class="fa fa-fw fa-info-circle"></i> Выводить новость на сайте
+                    <i class="fa fa-fw fa-info-circle"></i> Показывать новость на сайте
                 </div>
                 <?= $form->field($model, 'news_author')
                         ->textInput([

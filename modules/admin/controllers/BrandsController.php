@@ -81,15 +81,19 @@ class BrandsController extends Controller
     {
         $model = $this->findModel($id);
         
+        $current_image = $model->brands_image;
+        
         if ($model->load(Yii::$app->request->post())) {
             $file = UploadedFile::getInstance($model, 'brands_image');
-            $model->brands_image = $file;
-            
-            $dir = Yii::getAlias('images/brands_logo/');
-            $file_name = $model->brands_image->baseName . '.' . $model->brands_image->extension;
-            $model->brands_image->saveAs($dir . $file_name);
-            
-            $model->brands_image = '/' . $dir . $file_name;
+            if ($file) {
+                $model->brands_image = $file;
+                $dir = Yii::getAlias('images/brands_logo/');
+                $file_name = $model->brands_image->baseName . '.' . $model->brands_image->extension;
+                $model->brands_image->saveAs($dir . $file_name);
+                $model->brands_image = '/' . $dir . $file_name;
+            } else {
+                $model->brands_image = $current_image;
+            }
                    
             if ($model->validate() && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->brands_id]);                
