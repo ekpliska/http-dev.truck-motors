@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = 'Новости';
                             'headerOptions' => ['style' => 'width:10%'],
                         ],                       
                         'news_name',
+                        'slug',
 
                         ['class' => 'yii\grid\ActionColumn'],
                     ],

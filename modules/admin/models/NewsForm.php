@@ -43,6 +43,7 @@ class NewsForm extends Model
             [['news_title', 'news_keywords'], 'string', 'max' => 100],
             [['news_descriptions'], 'string', 'max' => 255],
             [['news_date'], 'date', 'format' => 'php:Y-m-d'],
+            [['brands_image'], 'image', 'maxWidth' => 510, 'maxHeight' => 470],
         ];
     }
 

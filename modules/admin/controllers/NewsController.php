@@ -1,7 +1,6 @@
 <?php
 
     namespace app\modules\admin\controllers;
-
     use Yii;    
     use yii\data\ActiveDataProvider;
     use yii\web\Controller;
@@ -86,19 +85,22 @@ class NewsController extends Controller
 
     public function actionUpdate($id)
     {
-        
-        
         $model = $this->findModel($id);
+        $current_image = $model->news_image;
         
         if ($model->load(Yii::$app->request->post())) {
             $file = UploadedFile::getInstance($model, 'news_image');
-            $model->news_image = $file;
+            if ($file) {
+                $model->news_image = $file;
+                $dir = Yii::getAlias('images/news/');
+                $file_name = $model->news_image->baseName . '.' . $model->news_image->extension;
+                $model->news_image->saveAs($dir . $file_name);
+
+                $model->news_image = '/' . $dir . $file_name;
+            } else {
+                $model->news_image = $current_image;
+            }
             
-            $dir = Yii::getAlias('images/news/');
-            $file_name = $model->news_image->baseName . '.' . $model->news_image->extension;
-            $model->news_image->saveAs($dir . $file_name);
-            
-            $model->news_image = '/' . $dir . $file_name;
                    
             if ($model->validate() && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->news_id]);                

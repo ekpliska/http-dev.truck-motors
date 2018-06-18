@@ -1,8 +1,11 @@
 <?php
     use yii\helpers\Html;
+    use yii\helpers\Url;
     use yii\widgets\Breadcrumbs;
+    use yii\helpers\StringHelper;
     use app\widgets\Info;
     use app\widgets\MainServices;
+    use app\widgets\News;
     
 /* 
  * Новости
@@ -22,25 +25,8 @@ $this->params['breadcrumbs'][] = 'Новости';
             ?>          
         <div class="row">
             <div class="col-sm-12">
-                <?php foreach ($news as $new) : ?>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <?= Html::img(); ?>
-                        <img class="card-img-top" ">
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php endforeach; ?>
+                <?= News::widget(); ?>
             </div>
-        </div>
-    </div>
+         </div>          
+    </div>    
 </section>

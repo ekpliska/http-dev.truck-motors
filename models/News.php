@@ -42,6 +42,11 @@ class News extends ActiveRecord
         } else {
             return false;            
         }        
+    }
+    
+    public static function findSlug($slug) {
+        return self::find()
+                ->andWhere(['slug' => $slug]);
     }    
     
 }

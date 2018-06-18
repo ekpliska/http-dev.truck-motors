@@ -144,6 +144,10 @@
     .panel_top .btn-record {
         font-size: 12px;
     }
+    
+    .side_bar_widget {
+        width: 100%;
+    }
 }
 
 	

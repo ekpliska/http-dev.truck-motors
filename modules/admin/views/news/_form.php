@@ -56,7 +56,7 @@
             <div class="col-sm-6 col-xs-12">
                 <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
                 <?= $form->field($model, 'news_image')->fileInput(['id' => 'imgInput'])->label() ?>
-                    <i class="fa fa-fw fa-info-circle"></i> Превью для новости 
+                    <i class="fa fa-fw fa-info-circle"></i> Размер превью для новости <strong>510 &times; 470</strong>
                 </div> 
             </div>            
             
@@ -68,7 +68,13 @@
                     ?>
                     <i class="fa fa-fw fa-info-circle"></i> Выводить новость на сайте
                 </div>
-                <?= $form->field($model, 'news_author')->textInput(['readOnly' => true, 'maxlength' => true]) ?>
+                <?= $form->field($model, 'news_author')
+                        ->textInput([
+                            'readOnly' => true, 
+                            'maxlength' => true,
+                            'value' => Yii::$app->user->identity['users_name'],
+                            ]) 
+                ?>
             </div>
            
             
