@@ -12,11 +12,11 @@
             </div>
             <h3><a href="<?= Url::to(['news/view', 'slug' => $new->slug]) ?>" class="post__a"><?= StringHelper::truncate($new->news_name, 84, '...') ?></a></h3>
             <div class="post_meta">
-                <span class="entry_date"><?= $new->news_date ?></span>
+                <span class="entry_date"><?= Yii::$app->formatter->asDate($new->news_date, 'd MMMM Y') ?></span>
                 <span class="entry_tags"><a href="<?= Url::to(['site/news']) ?>" class="entry_tags__a">Новости</a></span>
             </div>
             <p>
-                <?= StringHelper::truncate(strip_tags($new->news_text), 150, '...') ?>
+                <?= StringHelper::truncate(strip_tags($new->news_text), 500, '...') ?>
             </p>
         </div>
         <hr />          

@@ -72,7 +72,7 @@
                         ->textInput([
                             'readOnly' => true, 
                             'maxlength' => true,
-                            'value' => Yii::$app->user->identity['users_name'],
+                            'value' => Yii::$app->user->identity['users_fullname'],
                             ]) 
                 ?>
             </div>

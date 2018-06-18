@@ -22,7 +22,7 @@
                     </a>
                 </h6>
                 <span class="side_bar_widget__date">
-                    <?= $post->news_date ?>
+                    <?= Yii::$app->formatter->asDate($last_new->news_date, 'd MMMM Y') ?>
                 </span>
                 <p class="small">
                     <?= StringHelper::truncate(strip_tags($last_new->news_text), 150, '...') ?>

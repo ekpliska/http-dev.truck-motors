@@ -62,7 +62,7 @@ class News extends ActiveRecord
             [['date_create', 'date_update'], 'safe'],
             [['news_show'], 'integer'],
             [['news_name', 'news_image'], 'string', 'max' => 100],
-            [['news_text'], 'string', 'max' => 2000],
+            [['news_text'], 'string', 'max' => 10000],
             [['news_author'], 'string', 'max' => 70],
             [['news_title', 'news_keywords'], 'string', 'max' => 100],
             [['news_descriptions'], 'string', 'max' => 255],

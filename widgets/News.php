@@ -13,7 +13,7 @@ class News extends Widget {
 
     public function run() {
         
-        $query = ModelNews::find()->where(['news_show' => 1]);
+        $query = ModelNews::find()->where(['news_show' => 1])->orderBy('news_id desc');
         $countQuery = clone $query;
         $pages = new Pagination([
             'totalCount' => $query->count(), 

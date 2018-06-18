@@ -85,7 +85,7 @@ $this->params['breadcrumbs'][] = 'Редактирование новости - 
                         ?>
                         <i class="fa fa-fw fa-info-circle"></i> Выводить новость на сайте
                     </div>
-                    <?= $form->field($model, 'news_author')->textInput(['readOnly' => true, 'maxlength' => true]) ?>
+                    <?= $form->field($model, 'news_author')->textInput(['readOnly' => true]) ?>
                 </div>
 
 
