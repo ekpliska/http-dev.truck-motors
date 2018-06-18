@@ -3,9 +3,7 @@
     use yii\grid\GridView;
     use yii\widgets\Breadcrumbs;
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Новости
  */
 $this->title = Yii::$app->params['admin_panel_name'] . ' ' . 'Меню сайта';
 $this->params['breadcrumbs'][] = 'Меню сайта';    

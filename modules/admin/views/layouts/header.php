@@ -28,7 +28,15 @@
                     </li>
                     
                     <li><a class="sf-tag" href="<?= Url::to(['menu/index']) ?>">Меню сайта</a></li>
-                    <li><a class="sf-light-bulb" href="<?= Url::to(['/']) ?>">Основные услуги</a></li>
+
+                    <li class="cm-submenu">
+                        <a class="sf-light-bulb">Основные услуги<span class="caret"></span></a>
+                        <ul>
+                            <li><a href="<?= Url::to(['basic-services/index']) ?>">Все услуги</a></li>
+                            <li><a href="<?= Url::to(['/']) ?>">Фото галерея</a></li>
+                        </ul>
+                    </li>                    
+                    
                     <li><a class="sf-money" href="<?= Url::to(['brands/index']) ?>">Поставщики</a></li>  
                     <li><a class="sf-file-picture" href="<?= Url::to(['sliders/index']) ?>">Слайдер</a></li>
                     <li><a class="sf-layers" href="<?= Url::to(['text-blocks/index']) ?>">Текстовые блоки</a></li>

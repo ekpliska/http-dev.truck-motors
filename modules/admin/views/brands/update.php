@@ -5,7 +5,7 @@
     use yii\widgets\ActiveForm;
 
 $this->title = Yii::$app->params['admin_panel_name'] . ' ' . 'Поставищики';
-$this->params['breadcrumbs'][] = ['label' => 'Brands', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Поставщики', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->brands_name, 'url' => ['view', 'id' => $model->brands_id]];
 $this->params['breadcrumbs'][] = 'Редактирование записи - ' . $model->brands_name;
 ?>
@@ -68,10 +68,6 @@ $this->params['breadcrumbs'][] = 'Редактирование записи - ' 
 
             <?php ActiveForm::end(); ?>
                 
-
-                <?php /* = $this->render('_form', [
-                    'model' => $data_model,
-                ]) */ ?>
         
             </div>
         </div>

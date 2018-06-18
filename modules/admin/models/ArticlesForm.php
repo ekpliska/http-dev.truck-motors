@@ -46,6 +46,7 @@ class ArticlesForm extends Model
             [['articles_descriptions'], 'string', 'max' => 255],
             [['articles_date'], 'date', 'format' => 'php:Y-m-d'],
             [['articles_image'], 'image', 'maxWidth' => 510, 'maxHeight' => 470],
+            [['articles_image'], 'file', 'extensions' => 'png, jpg, jpeg'],            
         ];
     }
 
