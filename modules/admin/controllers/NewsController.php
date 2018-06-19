@@ -95,8 +95,8 @@ class NewsController extends Controller
                 $dir = Yii::getAlias('images/news/');
                 $file_name = $model->news_image->baseName . '.' . $model->news_image->extension;
                 $model->news_image->saveAs($dir . $file_name);
-
                 $model->news_image = '/' . $dir . $file_name;
+                @unlink(Yii::getAlias('@webroot' . $current_image));
             } else {
                 $model->news_image = $current_image;
             }

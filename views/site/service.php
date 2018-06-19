@@ -4,9 +4,7 @@
     use app\widgets\Info;
     use app\widgets\MainServices;
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Запись на СТО
  */
 
 $this->title = Yii::$app->params['site_title'] . ' ' . 'Запись на СТО'; 
@@ -42,6 +40,6 @@ $this->params['breadcrumbs'][] = 'Запись на СТО';
         
         <?= Info::widget(['alias_block' => 'schedule_block']) ?> 
         
-        <?= MainServices::widget(); ?>
+        <?= MainServices::widget(['view_name' => 'mainservices']); ?>
     </div>                
 </section>

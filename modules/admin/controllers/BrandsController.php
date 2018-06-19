@@ -91,6 +91,7 @@ class BrandsController extends Controller
                 $file_name = $model->brands_image->baseName . '.' . $model->brands_image->extension;
                 $model->brands_image->saveAs($dir . $file_name);
                 $model->brands_image = '/' . $dir . $file_name;
+                @unlink(Yii::getAlias('@webroot' . $current_image));
             } else {
                 $model->brands_image = $current_image;
             }

@@ -106,6 +106,8 @@ class BasicServicesController extends Controller
 
                 $model->basic_services_preview = '/' . $dir . $file_name;
                 $model->basic_services_preview_h = '/' . $dir . $file_name_h;
+                @unlink(Yii::getAlias('@webroot' . $current_image));
+                @unlink(Yii::getAlias('@webroot' . $current_image_h));
             } else {
                 $model->basic_services_preview = $current_image;
                 $model->basic_services_preview_h = $current_image_h;

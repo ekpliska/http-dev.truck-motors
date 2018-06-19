@@ -18,6 +18,6 @@ $this->params['breadcrumbs'][] = 'Контакты';
                 <p>Content</p>
             </div>
         </div>
-        <?= MainServices::widget(); ?>
+        <?= MainServices::widget(['view_name' => 'mainservices']); ?>
     </div>
 </section>

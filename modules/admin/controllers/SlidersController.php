@@ -93,16 +93,17 @@ class SlidersController extends Controller
     {
         
         $model = $this->findModel($id);
-        $current_image = $model->brands_image;
+        $current_image = $model->sliders_image;
         
         if ($model->load(Yii::$app->request->post())) {
             $file = UploadedFile::getInstance($model, 'sliders_image');
-            if ($file) {
+            if ($file) {                
                 $model->sliders_image = $file;
-                $dir = Yii::getAlias('images/brands_logo/');
+                $dir = Yii::getAlias('images/slider/');
                 $file_name = $model->sliders_image->baseName . '.' . $model->sliders_image->extension;
                 $model->sliders_image->saveAs($dir . $file_name);
                 $model->sliders_image = '/' . $dir . $file_name;
+                @unlink(Yii::getAlias('@webroot' . $current_image));
             } else {
                 $model->sliders_image = $current_image;
             }

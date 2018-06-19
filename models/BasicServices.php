@@ -1,8 +1,7 @@
 <?php
-
-namespace app\models;
-
-use Yii;
+    namespace app\models;
+    use Yii;
+    use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "tbl_basic_services".
@@ -11,19 +10,14 @@ use Yii;
  * @property string $basic_services_name
  * @property string $basic_services_text
  */
-class BasicServices extends \yii\db\ActiveRecord
+class BasicServices extends ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+
     public static function tableName()
     {
         return 'tbl_basic_services';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
@@ -31,10 +25,12 @@ class BasicServices extends \yii\db\ActiveRecord
             [['basic_services_text'], 'string', 'max' => 10000],
         ];
     }
+    
+    public static function findService($slug) {
+        return self::find()
+                ->andWhere(['slug' => $slug]);
+    } 
 
-    /**
-     * {@inheritdoc}
-     */
     public function attributeLabels()
     {
         return [

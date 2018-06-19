@@ -142,6 +142,14 @@ class SiteController extends Controller
         return $this->render('contact');
     }
     
+    
+    /*
+     * Страница "Основные услуги"
+     */
+    public function actionMainServices() {
+        return $this->render('main-services');
+    }
+    
     public function actionLogin() {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();

@@ -45,7 +45,7 @@ $first_slider = 0;
 
 <div class="site-index">
     
-    <?= MainServices::widget(); ?>
+    <?= MainServices::widget(['view_name' => 'mainservices']); ?>
 
     <div class="center_line text-center">
         <hr />

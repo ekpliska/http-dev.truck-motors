@@ -9,7 +9,7 @@
 <footer class="footer-distributed">
     <div class="footer-left text-center">
         <a href="<?= Url::to(['site/index']) ?>">
-            <?= Html::img('@web/images/logo_company.png', ['class' => 'footer__logo', 'alt' => 'logo_company']) ?>
+            <?= Html::img('@web/images/logo_company_white.png', ['class' => 'footer__logo', 'alt' => 'logo_company']) ?>
         </a>
         <?= MenuFooter::widget(); ?>
         <hr />

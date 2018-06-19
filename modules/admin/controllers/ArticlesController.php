@@ -118,8 +118,8 @@ class ArticlesController extends Controller
                 $dir = Yii::getAlias('images/news/');
                 $file_name = $model->articles_image->baseName . '.' . $model->articles_image->extension;
                 $model->articles_image->saveAs($dir . $file_name);
-
                 $model->articles_image = '/' . $dir . $file_name;
+                @unlink(Yii::getAlias('@webroot' . $current_image));
             } else {
                 $model->articles_image = $current_image;
             }

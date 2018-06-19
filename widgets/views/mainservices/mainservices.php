@@ -16,8 +16,10 @@ $count_col = 0;
         </h3>
         <?php foreach ($services as $key => $service) : ?>
             <div class="col-sm-3 col-md-2 col-xs-6 text-center">
-                <?= Html::img($service['image_path'], ['alt' => 'image_service', 'class' => 'service_img_'.$key]) ?>
-                <p class="service_title"><?= ($service['title']) ?></p>
+                <a href="<?= Url::to(['main-services/view', 'slug' => $service['slug']]) ?>">
+                    <?= Html::img($service['basic_services_preview'], ['alt' => 'image_service', 'class' => 'service_img_'.$key]) ?>                
+                    <p class="service_title"><?= ($service['basic_services_name']) ?></p>
+                </a>
             </div>
         <?php endforeach; ?>
     </div>
