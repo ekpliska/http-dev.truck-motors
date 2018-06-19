@@ -2,6 +2,7 @@
     use yii\bootstrap\ActiveForm;
     use yii\widgets\Breadcrumbs;
     use yii\helpers\Html;
+    use yii\helpers\Url;
     use yii\widgets\MaskedInput;
     use yii\captcha\Captcha;
     use kartik\date\DatePicker;
@@ -163,7 +164,11 @@ $this->params['breadcrumbs'][] = 'Юридическое лицo';
                             'uncheck' => false,
                             'value' => '1',
                             ])
-                        ->label('Соглашаюсь на обработку персональных данных')
+                        ->label('Соглашаюсь на обработку персональных данных ' . 
+                                Html::beginTag('a', ['href' => Url::to(['site/privacy-policy']), 'target' => '_blank']) . 
+                                 'Ознакомиться с политикой конфиденциальности' .
+                                Html::endTag('a')                                
+                                )
                     ?>
                 </div>                
             </div>

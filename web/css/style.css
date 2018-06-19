@@ -425,18 +425,17 @@ body {
 /*===============================*/
 
 /* styles for site-service sections */
-.site-service {
-    margin-top: 10px;
-}
-
-.site-contact {
-    margin-top: 10px;
-}
-
+.site-service,
+.site-about, 
+.site-contact,
 .site-news {
     margin-top: 10px;
+    min-height: calc(80vh - 80px);
 }
-
+.site-policy {
+    margin-bottom: 45px;    
+    min-height: calc(80vh - 80px);    
+}
 /* end styles for site-service sections */
 
 /*===============================*/

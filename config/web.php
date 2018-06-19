@@ -71,6 +71,7 @@ $config = [
                 'service/record-leg' => 'site/record-leg',
                 'main-services' => 'site/main-services',
                 'main-services/<slug>' => 'main-services/view',
+                'privacy-policy' => 'site/privacy-policy',
                 'about' => 'site/about',
                 'login' => 'site/login',
                 'news/page/<page:\d+>' => 'site/news',                

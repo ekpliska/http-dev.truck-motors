@@ -57,7 +57,14 @@
                     </li>
                     
                     <li><a class="sf-globe" href="<?= Url::to(['/']) ?>">Перейти на сайт</a></li>
-                    <li><a href="#" class="sf-lock-open">Выйти</a></li>                    
+                    
+                    <?php if (!Yii::$app->user->isGuest) : ?>
+                        <li>
+                            <a href="<?= Url::to(['/site/logout']) ?>" class="sf-lock-open">
+                               Выйти
+                            </a>
+                        </li> 
+                    <?php endif; ?>                    
                 </ul>
             </div>
         </div>

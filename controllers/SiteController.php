@@ -7,10 +7,9 @@
     use yii\filters\VerbFilter;
     use app\models\RecordsInd;
     use app\models\RecordsLeg;
-    use app\models\Menu;
     use app\models\LoginForm;
     use app\models\Sliders;
-    use app\models\News;
+    use app\models\TextBlocks;
 
 class SiteController extends Controller
 {
@@ -66,7 +65,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $sliders = Sliders::find()->andWhere(['sliders_show' => true, 'sliders_adverts' => false])->all();
-        return $this->render('index', ['sliders' => $sliders, 'sliders_advert' => $sliders_advert]);
+        return $this->render('index', ['sliders' => $sliders]);
     }
 
     /*
@@ -129,9 +128,7 @@ class SiteController extends Controller
      * Страница "Новостей" 
      */
     public function actionNews() {
-        $news = News::find()->andWhere(['news_show' => true])->all();
-        
-        return $this->render('news', ['news' => $news]);
+        return $this->render('news');
         
     }
     
@@ -150,6 +147,9 @@ class SiteController extends Controller
         return $this->render('main-services');
     }
     
+    /*
+     * Страница "Авторизации"
+     */    
     public function actionLogin() {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -162,5 +162,16 @@ class SiteController extends Controller
         return $this->render('login', [
             'model' => $model,
         ]);        
+    }
+    
+    public function actionLogout() {
+        Yii::$app->user->logout();
+        return $this->goHome();
+
+    }
+    
+    public function actionPrivacyPolicy() {
+        $text_policy = TextBlocks::find()->andWhere(['text_block_alias' => 'privacy_policy'])->select('text_blocks_text')->one();
+        return $this->render('privacy-policy', ['text_policy' => $text_policy]);
     }
 }

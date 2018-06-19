@@ -7,11 +7,13 @@
  */
 ?>
 <p class="footer-links">
-    <?php foreach ($pagesFooter as $key => $item) : ?>
+    <?php foreach ($pages as $item) : ?>
         <?php if ($item['menu_alias'] != 'index') : ?>
-            <a href="<?= Url::to(['site/' . $item['menu_alias']])?>">
-                <?= $item['menu_name'] ?>
-            </a>
+            <?php if ($item['menu_footer']) : ?>
+                <a href="<?= Url::to(['site/' . $item['menu_alias']])?>">
+                    <?= $item['menu_name'] ?>
+                </a>
+            <?php endif; ?>                
         <?php endif; ?>
     <?php endforeach; ?>
 </p>

@@ -1,7 +1,7 @@
 <?php
     use yii\helpers\Html;
     use yii\helpers\Url;
-    use app\widgets\MenuFooter;
+    use app\widgets\SiteMenu;
 /* 
  * Футер
  */
@@ -11,7 +11,7 @@
         <a href="<?= Url::to(['site/index']) ?>">
             <?= Html::img('@web/images/logo_company_white.png', ['class' => 'footer__logo', 'alt' => 'logo_company']) ?>
         </a>
-        <?= MenuFooter::widget(); ?>
+            <?= SiteMenu::widget(['view_name' => 'menufooter']) ?>
         <hr />
         <p class="footer__contact_policy">
             © 2018 Все права защищены

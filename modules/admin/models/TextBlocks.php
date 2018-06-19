@@ -17,7 +17,7 @@ class TextBlocks extends ActiveRecord
     {
         return [
             [['text_blocks_name'], 'required'],
-            [['text_blocks_text'], 'string', 'max' => 700],
+            [['text_blocks_text'], 'string', 'max' => 10000],
             [['text_blocks_name'], 'string', 'max' => 70],
             [['text_block_alias'], 'string', 'max' => 45],
         ];

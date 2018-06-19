@@ -5,15 +5,15 @@
 ?>
 <?php
 /**
- * Âèäæåò ôîğìèğîâàíèÿ ìåíş äëÿ õåäåğà è ôóòåğà
+ * ĞœĞµĞ½Ñ ÑĞ°Ğ¹Ñ‚Ğ°
  */
 class SiteMenu extends Widget
 {
-	public $viewName;
-	// Ìàññèâ, ñîğåæäàíèé, ïóíêòû â ìåíş äëÿ õåäåğà
+	public $view_name;
+	// Ğ¡Ñ‚Ñ€Ğ°Ğ½Ğ¸Ñ†Ñ‹ Ğ´Ğ»Ñ Ñ…ĞµĞ´ĞµÑ€Ğ°
 	public $pages;
 
-	// Ìàññèâ, ñîğåæäàíèé, ïóíêòû â ìåíş äëÿ ôóòåğà
+	// Ğ¡Ñ‚Ñ€Ğ°Ğ½Ğ¸Ñ†Ñ‹ Ğ´Ğ»Ñ Ñ„ÑƒÑ‚ĞµÑ€Ğ°
 	public $pagesFooter;
 
 	
@@ -22,11 +22,11 @@ class SiteMenu extends Widget
     	$this->pages = Menu::find()
     		->andWhere(['menu_parent' => 1, 'menu_show' => 1])
     		->with(['children'])
-    		->all();
+    		->all();        
     }
 
     public function run() {
-        return $this->render('sitemenu\sitemenu', ['pages' => $this->pages]);
+        return $this->render('sitemenu\\' . $this->view_name, ['pages' => $this->pages]);
     }
 }
 

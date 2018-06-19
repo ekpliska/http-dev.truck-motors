@@ -75,7 +75,7 @@ use app\widgets\SiteMenu;
 				</button>
 			</div>
 			<div id="w4-collapse" class="collapse navbar-collapse">
-				<?= SiteMenu::widget() ?>
+                            <?= SiteMenu::widget(['view_name' => 'sitemenu']) ?>
 			</div>
 		</div>
 	</nav>
