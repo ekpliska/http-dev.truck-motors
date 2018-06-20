@@ -1,39 +1,18 @@
 <?php
+    namespace app\models;
+    use Yii;
+    use yii\db\ActiveRecord;
 
-namespace app\models;
-
-use Yii;
-
-/**
- * This is the model class for table "tbl_articles".
- *
- * @property int $articles_id
- * @property string $articles_name
- * @property string $articles_image
- * @property string $articles_text
- * @property string $articles_author
- * @property string $articles_create
- * @property string $articles_update
- * @property string $articles_date
- * @property int $articles_show
- * @property string $articles_title
- * @property string $articles_keywords
- * @property string $articles_descriptions
- * @property string $slug
- */
-class Articles extends \yii\db\ActiveRecord
+/*
+ * Статьи (Для СЕО)
+ */    
+class Articles extends ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
     public static function tableName()
     {
         return 'tbl_articles';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
@@ -46,9 +25,11 @@ class Articles extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    public static function findSlug($slug) {
+        return self::find()
+                ->andWhere(['slug' => $slug]);
+    }        
+    
     public function attributeLabels()
     {
         return [

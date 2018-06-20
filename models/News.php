@@ -30,19 +30,6 @@ class News extends ActiveRecord
             [['news_date'], 'date', 'format' => 'php:Y-m-d'],
         ];
     }
-
-    
-    public function beforeSave($insert)
-    {
-        if (parent::beforeSave($insert)) {
-            if($insert)
-                $this->date_create = date('Y-m-d H:i:s');
-                $this->date_update = date('Y-m-d H:i:s');
-            return true;
-        } else {
-            return false;            
-        }        
-    }
     
     public static function findSlug($slug) {
         return self::find()

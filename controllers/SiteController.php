@@ -176,4 +176,13 @@ class SiteController extends Controller
         $text_policy = TextBlocks::find()->andWhere(['text_block_alias' => 'privacy_policy'])->select('text_blocks_text')->one();
         return $this->render('privacy-policy', ['text_policy' => $text_policy]);
     }
+    
+    /*
+     * Страница "Новостей" 
+     */
+//    public function actionArticles() {
+//        return $this->render('articles');
+//        
+//    }
+    
 }

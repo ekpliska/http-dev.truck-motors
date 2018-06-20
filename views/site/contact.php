@@ -1,7 +1,7 @@
 <?php
-    use yii\helpers\Html;
     use yii\widgets\Breadcrumbs;
     use app\widgets\MainServices;
+    use app\widgets\Map;
 
 $this->title = 'Контакты | ' . Yii::$app->params['site_title']; 
 $this->params['breadcrumbs'][] = 'Контакты';
@@ -14,12 +14,16 @@ $this->params['breadcrumbs'][] = 'Контакты';
                 ])
             ?>        
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-7">
                 <p>
                     <?= $text_contact['text_blocks_text'] ?>
                 </p>
+            </div>
+            <div class="col-sm-5">
+                <?= Map::widget() ?>
             </div>
         </div>
         <?= MainServices::widget(['view_name' => 'mainservices']); ?>
     </div>
 </section>
+<?php $this->registerCss('#map {border: 1px solid #bfbfbf;}'); ?>
