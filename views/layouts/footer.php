@@ -44,8 +44,8 @@
     
     <div class="footer-right">
         <p class="footer-company-about">
-            <span>About the company</span>
-            Text content
+            <span>Компания «TruckMotors»</span>
+            Предоставляет услуги автосервиса и розничный магазин с богатым выбором запчастей.
         </p>
         
         <div class="footer-icons">

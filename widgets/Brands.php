@@ -9,14 +9,16 @@
 <?php
 class Brands extends Widget
 {
-    
+    public $view_name;
+
+
     public function init() {
         parent::init();
     }
     
     public function run() {
         $brands = ModelBrands::find()->asArray()->all();        
-        return $this->render('brands\brands', ['brands' => $brands]);
+        return $this->render('brands\\' . $this->view_name, ['brands' => $brands]);
     }
 }
 ?>

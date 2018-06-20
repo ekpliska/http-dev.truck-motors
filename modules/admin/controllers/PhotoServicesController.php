@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * PhotoServicesController implements the CRUD actions for PhotoServices model.
@@ -49,6 +50,8 @@ class PhotoServicesController extends Controller
         $model = new PhotoServices();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->gallery = UploadedFile::getInstances($model, 'gallery');
+            $model->uploadGallery();
             return $this->redirect(['view', 'id' => $model->photo_services_id]);
         }
 
@@ -62,6 +65,11 @@ class PhotoServicesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->gallery = \yii\web\UploadedFile::getInstances($model, 'gallery');
+
+            if ($model->gallery) {
+                $model->uploadGallery();
+            }
             return $this->redirect(['view', 'id' => $model->photo_services_id]);
         }
 

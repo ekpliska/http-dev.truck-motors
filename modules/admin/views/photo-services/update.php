@@ -1,21 +1,26 @@
 <?php
-
-use yii\helpers\Html;
-
-/* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\PhotoServices */
-
-$this->title = 'Update Photo Services: ' . $model->photo_services_id;
-$this->params['breadcrumbs'][] = ['label' => 'Photo Services', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->photo_services_id, 'url' => ['view', 'id' => $model->photo_services_id]];
-$this->params['breadcrumbs'][] = 'Update';
+    use yii\helpers\Html;
+    use yii\widgets\Breadcrumbs;
+    
+$this->title = Yii::$app->params['admin_panel_name'] . ' ' . 'Фото галерея';
+$this->params['breadcrumbs'][] = ['label' => 'Фото галерея', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $model->basicServices->basic_services_name;
 ?>
-<div class="photo-services-update">
+<div class="row cm-fix-height">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <?= Breadcrumbs::widget([
+                    'homeLink' => ['label' => 'Главная', 'url' => '/admin'],
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    ])
+                ?>
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+                <?= $this->render('_form', [
+                    'model' => $model,
+                ]) ?>
+        
+            </div>
+        </div>
+    </div>
 </div>

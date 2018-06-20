@@ -6,7 +6,7 @@
 /*
  * Политика конфиденциальности
  */    
-$this->title = Yii::$app->params['site_title'] . ' ' . 'Политика конфиденциальности';
+$this->title = 'Политика конфиденциальности | ' . Yii::$app->params['site_title'];
 $this->params['breadcrumbs'][] = 'Политика конфиденциальности';
 ?>
 <section class="site-policy">    

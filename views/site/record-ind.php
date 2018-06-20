@@ -10,7 +10,7 @@
     use kartik\time\TimePicker;
     use app\widgets\Info;
 
-$this->title = Yii::$app->params['site_title'] . ' ' . 'Запись на СТО'; 
+$this->title = 'Запись на сервис - Физическое лицо | ' . Yii::$app->params['site_title']; 
 $this->params['breadcrumbs'][] = [
     'template' => "<li>{link}</li>\n", // шаблон для этой ссылки  
     'label' => 'Сервис', // название ссылки 

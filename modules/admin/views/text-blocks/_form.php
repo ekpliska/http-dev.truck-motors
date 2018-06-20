@@ -36,7 +36,7 @@
             <div class="col-sm-12 col-xs-12 text-left">
                 <?= $form->field($model, 'text_blocks_text')->widget(CKEditor::className(),[
                     'editorOptions' => [
-                        'preset' => 'standard', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+                        'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
                         'inline' => false, //по умолчанию false
                     ],
                     ]); 

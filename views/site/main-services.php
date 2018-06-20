@@ -6,7 +6,7 @@
  * Основные услуги
  */
 
-$this->title = Yii::$app->params['site_title'] . ' ' . 'Основные услуги'; 
+$this->title = 'Основные услуги | ' .  Yii::$app->params['site_title']; 
 $this->params['breadcrumbs'][] = 'Основные услуги';
 ?>
 <section class="site-service">
@@ -22,10 +22,6 @@ $this->params['breadcrumbs'][] = 'Основные услуги';
         
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <?= MainServices::widget(['view_name' => 'items']); ?>
-            <hr />
-            Записаться на сервис
-            <hr />
-            Реклама
         </div>
         
     </div>                

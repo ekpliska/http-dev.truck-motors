@@ -3,10 +3,10 @@
     use yii\bootstrap\ActiveForm;
     use yii\widgets\Breadcrumbs;
 
-$this->title = Yii::$app->params['site_title'] . ' ' . 'Вход';
+$this->title = 'Вход | ' .  Yii::$app->params['site_title'];
 $this->params['breadcrumbs'][] = 'Вход';
 ?>
-<section class="form-page">
+<section class="site-login">
     <div class="container">
         <h3>Вход</h3><br>
             <?= Breadcrumbs::widget([

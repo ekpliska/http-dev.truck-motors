@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = 'Редактирование услуги - ' 
                 <div class="col-sm-12 col-xs-12">                
                     <?= $form->field($model, 'basic_services_text')->widget(CKEditor::className(),[
                         'editorOptions' => [
-                            'preset' => 'standard', 
+                            'preset' => 'full', 
                             'inline' => false, 
                         ],
                         ]); 

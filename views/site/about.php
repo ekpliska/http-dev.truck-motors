@@ -4,7 +4,7 @@
     use yii\widgets\Breadcrumbs;
     use app\widgets\MainServices;
 
-$this->title = Yii::$app->params['site_title'] . ' ' . 'О компании';
+$this->title = 'О Компании | ' . Yii::$app->params['site_title'];
 $this->params['breadcrumbs'][] = 'О компании';
 ?>
 <section class="site-about">    
@@ -16,7 +16,9 @@ $this->params['breadcrumbs'][] = 'О компании';
             ?>          
         <div class="row">
             <div class="col-sm-12">
-                <p>Content</p>
+                <p>
+                    <?= $text_about['text_blocks_text'] ?>
+                </p>
             </div>
         </div>
         <?= MainServices::widget(['view_name' => 'mainservices']); ?>

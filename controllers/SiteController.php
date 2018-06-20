@@ -81,7 +81,8 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $text_about = TextBlocks::find()->andWhere(['text_block_alias' => 'about_block'])->select('text_blocks_text')->one();
+        return $this->render('about', ['text_about' => $text_about]);
     }
     
     /*
@@ -136,7 +137,8 @@ class SiteController extends Controller
      * Страница "Контакты"
      */
     public function actionContact() {
-        return $this->render('contact');
+        $text_contact = TextBlocks::find()->andWhere(['text_block_alias' => 'contact_block'])->select('text_blocks_text')->one();
+        return $this->render('contact', ['text_contact' => $text_contact]);
     }
     
     

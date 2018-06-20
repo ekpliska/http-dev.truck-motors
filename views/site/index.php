@@ -66,7 +66,7 @@ $first_slider = 0;
         <?= AdvertBlock::widget(); ?>
     </div>
     <div class="container">
-        <?= Brands::widget(); ?>
+        <?= Brands::widget(['view_name' => 'brands']); ?>
     </div>
 
 </div>

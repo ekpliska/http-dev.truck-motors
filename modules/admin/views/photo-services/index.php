@@ -27,12 +27,7 @@ $this->params['breadcrumbs'][] = 'Фото галерея';
 
                         [
                             'attribute' => 'photo_services_id_name',
-                            'value' => $model->photo_services_id_name,
-                        ],
-                        [
-                            'attribute'=>'photo_services_path',
-                            'value'=>$model->photo_services_path,
-                            'format' => ['image', ['height' => '50']],
+                            'value' => $model->basicServices->basic_services_name,
                         ],
 
                         ['class' => 'yii\grid\ActionColumn'],

@@ -2,6 +2,7 @@
     namespace app\models;
     use Yii;
     use yii\db\ActiveRecord;
+    use app\models\Image;
 
 /**
  * This is the model class for table "tbl_basic_services".
@@ -29,8 +30,12 @@ class BasicServices extends ActiveRecord
     public static function findService($slug) {
         return self::find()
                 ->andWhere(['slug' => $slug]);
-    } 
-
+    }
+    
+    public function getId() {
+        return $this->basic_services_id;
+    }
+    
     public function attributeLabels()
     {
         return [

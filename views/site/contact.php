@@ -3,7 +3,7 @@
     use yii\widgets\Breadcrumbs;
     use app\widgets\MainServices;
 
-$this->title = Yii::$app->params['site_title'] . ' ' . 'Контакты'; 
+$this->title = 'Контакты | ' . Yii::$app->params['site_title']; 
 $this->params['breadcrumbs'][] = 'Контакты';
 ?>
 <section class="site-contact">    
@@ -15,7 +15,9 @@ $this->params['breadcrumbs'][] = 'Контакты';
             ?>        
         <div class="row">
             <div class="col-sm-12">
-                <p>Content</p>
+                <p>
+                    <?= $text_contact['text_blocks_text'] ?>
+                </p>
             </div>
         </div>
         <?= MainServices::widget(['view_name' => 'mainservices']); ?>

@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = 'Редактирование новости - 
                 <div class="col-sm-12 col-xs-12">                
                     <?= $form->field($model, 'news_text')->widget(CKEditor::className(),[
                         'editorOptions' => [
-                            'preset' => 'standard', 
+                            'preset' => 'full', 
                             'inline' => false, 
                         ],
                         ]); 

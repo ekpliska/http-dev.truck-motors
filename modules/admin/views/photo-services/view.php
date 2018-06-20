@@ -1,37 +1,63 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\DetailView;
+    use yii\helpers\Html;
+    use yii\widgets\DetailView;
+    use app\helpers\Helper;
+    use yii\widgets\Breadcrumbs;
 
-/* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\PhotoServices */
-
-$this->title = $model->photo_services_id;
-$this->params['breadcrumbs'][] = ['label' => 'Photo Services', 'url' => ['index']];
+$this->title = Yii::$app->params['admin_panel_name'] . ' ' . 'Фото галерея';
+$this->params['breadcrumbs'][] = ['label' => 'Фото галерея', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="photo-services-view">
+<div class="row cm-fix-height">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <?= Breadcrumbs::widget([
+                    'homeLink' => ['label' => 'Главная', 'url' => '/admin'],
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    ])
+                ?>
+                <p>
+                    <?= Html::a('Редактировать', ['update', 'id' => $model->photo_services_id], ['class' => 'btn btn-primary']) ?>
+                    <?= Html::a('Удалить', ['delete', 'id' => $model->photo_services_id], [
+                        'class' => 'btn btn-danger',
+                        'data' => [
+                            'confirm' => 'Вы действительно хотите удалить данный пункт меню?',
+                            'method' => 'post',
+                        ],]) 
+                    ?>
+                </p>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+                <?= DetailView::widget([
+                    'model' => $model,
+                    'attributes' => [
+                        [
+                            'attribute' => 'photo_services_id_name',
+                            'value' => $model->basicServices->basic_services_name,
+                        ],
+                    ],
+                ]) ?>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->photo_services_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->photo_services_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'photo_services_id',
-            'photo_services_id_name',
-            'photo_services_path',
-        ],
-    ]) ?>
-
+                <?php $images = $model->getImages(); ?>  
+                <?php if (isset($images)) : ?>
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <div class="alert alert-info alert-dismissible fade in shadowed" role="alert">
+                                <i class="fa fa-fw fa-info-circle"></i> Прикрепленные фотографии к услуге <strong></strong>
+                            </div>
+                            <div class="row">
+                                <?php foreach ($images as $image) : ?>
+                                    <div class="col-md-3">
+                                        <?= Html::img('@web/images/upload/store/' . $image->filePath, ['alt' => '', 'width' => '100']) ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>                        
+                        </div>
+                    </div>
+                <?php endif; ?>
+                
+            </div>
+        </div>
+    </div>
 </div>

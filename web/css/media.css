@@ -379,6 +379,10 @@
     .center_line__button {
         left: 12%;
     }
+    
+    .footer-distributed .footer__logo {
+        width: 35%;
+    }
 
 }
 

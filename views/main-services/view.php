@@ -5,7 +5,7 @@
  * Страница просмотра основных услуг
  */
 
-$this->title = Yii::$app->params['site_title'] . ' ' . 'Основные услуги'; 
+$this->title = $service->basic_services_name;
 $this->params['breadcrumbs'][] = ['label' => 'Основные услуги', 'url' => ['site/main-services']];
 $this->params['breadcrumbs'][] = $service->basic_services_name;
 ?>
@@ -17,7 +17,10 @@ $this->params['breadcrumbs'][] = $service->basic_services_name;
             ])
         ?>
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            text
+            <?= $service->basic_services_text ?>
+            <h4>Наши работы</h4>
+            <hr />
+            <?= MainServices::widget(['view_name' => 'images']); ?>
         </div>
         
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">

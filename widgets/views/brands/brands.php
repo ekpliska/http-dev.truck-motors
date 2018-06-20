@@ -13,8 +13,8 @@
                 </a>
             </div>
         <?php endforeach; ?>
+    </div>
 </div>
-
     
 <?php foreach ($brands as $brand) : ?>    
 <div class="modal" id="brands-<?= $brand['brands_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

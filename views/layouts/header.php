@@ -40,7 +40,7 @@ use app\widgets\SiteMenu;
                             <div class="panel_top__part_phone">
                                 <i class="fa fa-phone"></i>
                             </div>
-                                <p>(4852) 59-41-41</p>
+                                <p><a href="tel: +74852594141">(4852) 59-41-41</a></p>
                         </div>
                     </div>
                 </div>
@@ -59,25 +59,25 @@ use app\widgets\SiteMenu;
         </nav>
     </div> 
     
-	<nav class="navbar navbar-default navbar-menu">
-		<div class="container">
-			<div class="navbar-header">
-				<ul class="nav navbar-nav soc-icons">
-					<li><a href="#" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
-		            <li><a href="https://vk.com/sto_truckmotors" target="_blank"><i class="fa fab fa-vk"></i></a></li>
-		            <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-	 			</ul>
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w4-collapse">
-					<span class="sr-only">Меню</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div id="w4-collapse" class="collapse navbar-collapse">
-                            <?= SiteMenu::widget(['view_name' => 'sitemenu']) ?>
-			</div>
-		</div>
-	</nav>
+    <nav class="navbar navbar-default navbar-menu">
+        <div class="container">
+            <div class="navbar-header">
+                <ul class="soc-icons">
+                    <li><a href="#" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
+		    <li><a href="https://vk.com/sto_truckmotors" target="_blank"><i class="fa fab fa-vk"></i></a></li>
+		    <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+	 	</ul>
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w4-collapse">
+                    <span class="sr-only">Меню</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+		</button>
+            </div>
+            <div id="w4-collapse" class="collapse navbar-collapse">
+                <?= SiteMenu::widget(['view_name' => 'sitemenu']) ?>
+            </div>
+        </div>
+    </nav>
     
 </header>

@@ -23,10 +23,12 @@ class AppAsset extends AssetBundle
         'css/style.css',
         'css/media.css',
         '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
+        '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css',
     ];
     public $js = [
         'https://api-maps.yandex.ru/2.1/?lang=ru_RU',
         'js/common.js',
+        '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
