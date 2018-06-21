@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = 'Новости';
 ?>
 
 
-<section class="site-new">    
+<section class="site-news">    
     <div class="container">
         <div class="post first_post col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <h3>Новости</h3><br>

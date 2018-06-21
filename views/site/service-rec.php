@@ -11,13 +11,13 @@ $this->title = 'Запись на сервис | ' . Yii::$app->params['site_tit
 $this->params['breadcrumbs'][] = [
     'template' => "<li>{link}</li>\n", // шаблон для этой ссылки  
     'label' => 'Сервис', // название ссылки 
-    'url' => ['site/service'] // сама ссылка
+//    'url' => ['site/service'] // сама ссылка
                                  ];
-$this->params['breadcrumbs'][] = 'Запись на СТО';
+$this->params['breadcrumbs'][] = 'Запись на сервис';
 ?>
 <section class="site-service">
     <div class="container">
-        <h3>Запись на СТО</h3>
+        <h3>Запись на сервис</h3>
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ])

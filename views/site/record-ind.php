@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = [
     'label' => 'Сервис', // название ссылки 
     'url' => ['site/service'] // сама ссылка
 ];
-$this->params['breadcrumbs'][] = ['label' => 'Запись на СТО', 'url' => ['site/service']];
+$this->params['breadcrumbs'][] = ['label' => 'Запись на сервис', 'url' => ['site/service']];
 $this->params['breadcrumbs'][] = 'Физическое лицо';
 
 /* 

@@ -26,8 +26,8 @@ $count_col = 0;
         
         <?php foreach ($services as $key => $service) : ?>
             <div class="col-sm-3 col-md-2 col-xs-6 text-center services__link">
-                <a href="<?= Url::to(['main-services/view', 'slug' => $service['slug']]) ?>">
-                    <?= Html::img($service['basic_services_preview'], ['alt' => 'image_service', 'class' => 'service_img_'.$key]) ?>                
+                <a href="<?= Url::to(['main-services/view', 'slug' => $service['slug']]) ?>" class="izo">
+                    <?= Html::img($service['basic_services_preview'], ['alt' => 'image_service', 'class' => 'service_img']) ?>
                     <p class="service_title"><?= ($service['basic_services_name']) ?></p>
                 </a>
             </div>

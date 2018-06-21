@@ -1264,7 +1264,7 @@ img.frame.alignleft {
 }
 
 .side_bar_widget {
-    width: 258px;
+    /*width: 258px;*/
     padding: 10px;
     overflow: hidden;
     border-width: 1px;
@@ -1296,7 +1296,7 @@ img.frame.alignleft {
 
 .bordered_img {
     width: 100px;
-    height: 60px;
+    height: 75px;
 }
 
 .side_bar_widget__date {
@@ -1342,7 +1342,9 @@ img.frame.alignleft {
 }
 
 
-
+/*===============================*/
+/*          Sub Menu             */
+/*===============================*/
 .panel.panel-default.sub_menu {
     border: none;
 }
@@ -1354,15 +1356,10 @@ img.frame.alignleft {
     padding-bottom: 20px;
     padding: 10px;
 }
-.sub_menu__dil_brand, 
+/*.sub_menu__dil_brand, 
 .sub_menu__dil_advert {
     border-bottom: 1px solid #0077b1;
-}
-
-.sub_menu__dil_rec {
-    border-bottom: 1px solid #e31e25;
-    border-top: 1px solid #e31e25;
-}
+}*/
 
 .sub_menu__dil_rec p {
     font-size: 13px;
@@ -1380,6 +1377,18 @@ img.frame.alignleft {
 
 .sub_menu__title {
     font-weight: bold;
-    color: #5b5a5d;
-    font-size: 16px;
+    color: #0279b0;
+    font-size: 14px;
+    padding: 10px;
+    border-bottom: 1px solid #0279b0;
+    border-left: 10px solid #0279b0;
+}
+
+.sub_menu__title_rec {
+    font-weight: bold;
+    color: #e31e25;
+    font-size: 14px;
+    padding: 10px;
+    border-bottom: 1px solid #e31e25;
+    border-left: 10px solid #e31e25;
 }

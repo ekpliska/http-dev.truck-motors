@@ -45,13 +45,14 @@
     <div class="footer-right">
         <p class="footer-company-about">
             <span>Компания «TruckMotors»</span>
-            Предоставляет услуги автосервиса и розничный магазин с богатым выбором запчастей.
+            Автосервис и запчасти для европейских грузовых автомобилей.
         </p>
         
         <div class="footer-icons">
-            <a href="#" target="_blank"><i class="fa fa-facebook-official"></i></a>
+            <a href="https://www.facebook.com/sto.truckmotors/" target="_blank"><i class="fa fa-facebook-official"></i></a>
             <a href="https://vk.com/sto_truckmotors" target="_blank"><i class="fa fab fa-vk"></i></a>
-            <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.instagram.com/sto_truckmotors/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.youtube.com/channel/UC8hqDmXZMsBaWFYDG7T-0hQ" target="_blank"><i class="fa fa-youtube"></i></a>
         </div>
     </div>
 </footer>

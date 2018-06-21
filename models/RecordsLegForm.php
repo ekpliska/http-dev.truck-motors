@@ -1,19 +1,28 @@
 <?php
     namespace app\models;
-    use yii\base\Model;
     use Yii;
-    use yii\db\ActiveRecord;
+    use yii\base\Model;
 
 /**
- * Запись на СТО (Юридические лица)
+ * Форма / Запись на СТО (Юридические лица)
  */
-class RecordsLeg extends ActiveRecord
+class RecordsLegForm extends Model
 {
 
-    public static function tableName()
-    {
-        return 'tbl_records_leg';
-    }
+    public $records_nameCompany;
+    public $records_phone;
+    public $records_townId;
+    public $records_mark;
+    public $records_model;
+    public $records_year;
+    public $records_comments;
+    public $records_number;
+    public $records_check;
+    public $records_date;
+    public $records_time;
+    
+    public $verifyCode;
+    
 
     public function rules()
     {
@@ -28,6 +37,7 @@ class RecordsLeg extends ActiveRecord
             [['records_date'], 'date', 'format' => 'php:Y-m-d'],
             [['records_time'], 'time', 'format' => 'php:H:i'],
             [['records_time'], 'checkTimeRange'],
+            ['verifyCode', 'captcha'],
         ];
     }
 
@@ -43,26 +53,9 @@ class RecordsLeg extends ActiveRecord
         }
     }    
     
-    /*
-     * Реализация отправки почты
-     * В параметрах Yii::$app->params['email_service'] указать электронный адрес, того, кому заявки отправлять
-     */
-    public function sendMail($view, $subject, $params = [])
-    {
-        
-        $message = Yii::$app->mailer->compose([
-                'html' => 'views/' . $view,
-            ], $params)
-            ->setTo(Yii::$app->params['email_service'])
-            ->setSubject($subject)
-            ->send();
-        return $message;
-    }    
-    
     public function attributeLabels()
     {
         return [
-            'records_id' => 'П/п',
             'records_townId' => 'Город',
             'records_nameCompany' => 'Название компании',
             'records_mark' => 'Марка',

@@ -21,9 +21,6 @@
 //class RecordsInd extends ActiveRecord
 class RecordsInd extends ActiveRecord
 {
-    
-    public $verifyCode;
-
 
     /**
      * {@inheritdoc}
@@ -49,7 +46,6 @@ class RecordsInd extends ActiveRecord
             [['records_date'], 'date', 'format' => 'php:Y-m-d'],
             [['records_time'], 'time', 'format' => 'php:H:i'],
             [['records_time'], 'checkTimeRange', 'skipOnEmpty'=> false],
-            ['verifyCode', 'captcha'],
         ];
     }
 
@@ -78,7 +74,6 @@ class RecordsInd extends ActiveRecord
             ->setTo(Yii::$app->params['email_service'])
             ->setSubject($subject)
             ->send();
-        
         return $message;
     }
 

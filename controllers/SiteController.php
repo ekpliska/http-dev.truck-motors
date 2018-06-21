@@ -1,15 +1,21 @@
 <?php
     namespace app\controllers;
     use Yii;
+    use yii\helpers\Url;
     use yii\filters\AccessControl;
     use yii\web\Controller;
     use yii\web\Response;
     use yii\filters\VerbFilter;
+    use yii\web\XmlResponseFormatter;
+    use \app\models\Menu;
+    use app\models\News;
     use app\models\RecordsInd;
     use app\models\RecordsLeg;
     use app\models\LoginForm;
     use app\models\Sliders;
     use app\models\TextBlocks;
+    use app\models\RecordsIndForm;
+    use app\models\RecordsLegForm;
 
 class SiteController extends Controller
 {
@@ -71,9 +77,9 @@ class SiteController extends Controller
     /*
      * Страница "Запись на СТО"
      */
-    public function actionService()
+    public function actionServiceRec()
     {
-        return $this->render('service');
+        return $this->render('service-rec');
     }
 
     /*
@@ -90,19 +96,37 @@ class SiteController extends Controller
      * Добавление новой записи
      */
     public function actionRecordInd() {
-        $model = new RecordsInd();
+        
+        $model = new RecordsIndForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
                 $messageEmailInd = Yii::$app->request->post();
+                
                 Yii::$app->session->setFlash('success', 'Спасибо! Ваша заявка была успешно создана');
-                // $model->save();
-                $model->sendMail('template-record-ind', 'Запись на СТО - новая заявка', ['messageEmailInd' => $messageEmailInd]);
-                return $this->refresh();
+                
+                $data_model = new RecordsInd();
+                
+                $data_model->records_fullName = $model->records_fullName;
+                $data_model->records_phone = $model->records_phone;
+                $data_model->records_mark = $model->records_mark;
+                $data_model->records_model = $model->records_model;
+                $data_model->records_year = $model->records_year;
+                $data_model->records_number = $model->records_number;
+                $data_model->records_comments = $model->records_comments;
+                $data_model->records_date = $model->records_date;
+                $data_model->records_time = $model->records_time;
+                $data_model->records_check = $model->records_check;
+                
+                if ($data_model->validate() && $data_model->save()) {
+                    $data_model->sendMail('template-record-ind', 'Запись на СТО - новая заявка', ['messageEmailInd' => $messageEmailInd]);
+                    return $this->refresh();
+                }
             } else {
                 Yii::$app->session->setFlash('error', 'При создании заявки возникла ошибка, попробуйте еще раз');
             }
         }
-        return $this->render('record-ind', ['model' => $model]);
+        return $this->render('record-ind', ['model' => $model]);        
+        
     }
 
     /*
@@ -110,19 +134,37 @@ class SiteController extends Controller
      * Добавление новой записи
      */
     public function actionRecordLeg() {
-        $model = new RecordsLeg();
+
+        $model = new RecordsLegForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
-                $messageEmailLeg = Yii::$app->request->post();
+                 $messageEmailLeg = Yii::$app->request->post();
+                
                 Yii::$app->session->setFlash('success', 'Спасибо! Ваша заявка была успешно создана');
-                // $model->save();
-                $model->sendMail('template-record-leg', 'Запись на СТО - новая заявка', ['messageEmailLeg' => $messageEmailLeg]);
-                return $this->refresh();
+                
+                $data_model = new RecordsLeg();
+                
+                $data_model->records_nameCompany = $model->records_nameCompany;
+                $data_model->records_phone = $model->records_phone;
+                $data_model->records_mark = $model->records_mark;
+                $data_model->records_model = $model->records_model;
+                $data_model->records_year = $model->records_year;
+                $data_model->records_number = $model->records_number;
+                $data_model->records_comments = $model->records_comments;
+                $data_model->records_date = $model->records_date;
+                $data_model->records_time = $model->records_time;
+                $data_model->records_check = $model->records_check;
+                
+                if ($data_model->validate() && $data_model->save()) {
+                    $data_model->sendMail('template-record-leg', 'Запись на СТО - новая заявка', ['messageEmailLeg' => $messageEmailLeg]);
+                    return $this->refresh();
+                }
             } else {
                 Yii::$app->session->setFlash('error', 'При создании заявки возникла ошибка, попробуйте еще раз');
             }
         }
-        return $this->render('record-leg', ['model' => $model]);
+        return $this->render('record-leg', ['model' => $model]);           
+        
     }
     
     /*
@@ -178,11 +220,56 @@ class SiteController extends Controller
     }
     
     /*
-     * Страница "Новостей" 
+     * Страница "Статей" 
      */
 //    public function actionArticles() {
 //        return $this->render('articles');
 //        
 //    }
+    
+    /*
+     * Формирование карты сайта (XML)
+     */
+    public function actionSitemap() {
+
+        Yii::$app->response->format = Response::FORMAT_XML;
+        Yii::$app->response->formatters = [
+            Response::FORMAT_XML=>[
+                'class' => XmlResponseFormatter::className(),
+                'itemTag' =>'url',
+                'rootTag' =>'urlset',
+            ]
+        ];
+
+        $urls = [];
+        $pages = Menu::find()
+                ->select(['menu_alias'])
+                ->all();
+        foreach($pages as $page) {
+            if (!empty($page->menu_alias)) {
+                $urls[] = [
+                    'loc' => $page->menu_alias != 'index' ? Url::toRoute(['/' . $page->menu_alias], true) : Url::toRoute(['site/index'], true),
+                    'changefreq'=>'daily',
+                    'priority'=>'1.0',
+                ];
+            }
+        }
+
+        $news = News::find()
+                ->select(['slug'])
+                ->all();
+        foreach($news as $new) {
+            if (!empty($new->slug)) {
+                $urls[] = [
+                    'loc' => Url::toRoute(['news/' . $new->slug], true),
+                    'changefreq'=>'daily',
+                    'priority'=>'1.0',
+                ];
+            }
+        }        
+        
+        return $urls;
+        
+    }
     
 }

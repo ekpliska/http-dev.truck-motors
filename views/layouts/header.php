@@ -63,9 +63,10 @@ use app\widgets\SiteMenu;
         <div class="container">
             <div class="navbar-header">
                 <ul class="soc-icons">
-                    <li><a href="#" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
+                    <li><a href="https://www.facebook.com/sto.truckmotors/" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
 		    <li><a href="https://vk.com/sto_truckmotors" target="_blank"><i class="fa fab fa-vk"></i></a></li>
-		    <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+		    <li><a href="https://www.instagram.com/sto_truckmotors/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UC8hqDmXZMsBaWFYDG7T-0hQ" target="_blank"><i class="fa fa-youtube"></i></a></li>
 	 	</ul>
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w4-collapse">
                     <span class="sr-only">Меню</span>

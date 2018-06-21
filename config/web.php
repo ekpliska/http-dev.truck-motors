@@ -36,7 +36,7 @@ $config = [
             'htmlLayout' => 'layouts/template-record',    // Макеты писем (layouts), HTML версия
             'messageConfig' => [
                 'charset' => 'UTF-8',   // Кодировка писем UTF-8
-                'from' => ['noreply@site.com' => 'Site Name'],  // Задаем e-mail адрес и имя отправителя по умолчанию
+                'from' => ['info@truck-motors.su' => 'TuckMotors'],  // Задаем e-mail адрес и имя отправителя по умолчанию
             ],
 //            'transport' => [
 //                'class' => 'Swift_SmtpTransport',
@@ -66,7 +66,8 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
-                'service' => 'site/service',
+                'sitemap.xml' => 'site/sitemap',
+                'service-rec' => 'site/service-rec',
                 'service/record-ind' => 'site/record-ind',
                 'service/record-leg' => 'site/record-leg',
                 'main-services' => 'site/main-services',
