@@ -4,3 +4,4 @@ Disallow: /admin
 Disallow: /modules
 
 Host: http://www.truck-motors.su/
+Sitemap: http://www.truck-motors.su/sitemap.xml

@@ -1,33 +1,65 @@
 <?php
     use yii\helpers\Url;
     use yii\widgets\Breadcrumbs;
-    use app\widgets\LastNews;
+    
 /* 
- * Страница одной новости
+ * Страница одной статьи
  */
-$this->title = $post->news_name;
-$this->params['breadcrumbs'][] = ['label' => 'Новости', 'url' => ['site/news']];
-$this->params['breadcrumbs'][] = $service->news_name;
+$this->title = $post->articles_name;
+$this->params['breadcrumbs'][] = ['label' => 'Статьи', 'url' => ['site/articles']];
+$this->params['breadcrumbs'][] = $post->articles_name;
 ?>
-<section class="site-new">    
+
+<?php if (isset($sliders) && count($sliders) > 0) : ?>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>    
+        <div class="carousel-inner" role="listbox">
+            <?php foreach ($sliders as $slider) : ?>
+                <?php $first_slider++; ?>
+                <div class="<?= $first_slider == 1 ? 'item active' : 'item' ?>">
+                    <img src="<?= Url::to($slider->sliders_image) ?>" alt="Image">
+                    <?php if ($slider->sliders_title && $slider->sliders_text) : ?>
+                        <div class="carousel-caption">
+                            <h3><?= $slider->sliders_title ?></h3>
+                            <p><?= $slider->sliders_text ?></p>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- Навигация слайдера -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Предыдущий</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Следующий</span>
+        </a>
+    </div>
+<?php endif; ?>
+
+
+<section class="site-news">    
     <div class="container">
-        <div class="post first_post col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <h3><?= $post->news_name ?></h3>
+        <div class="post first_post col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h3><?= $post->articles_name ?></h3>
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ])
             ?>
             <div class="post_meta">
-                <span class="entry_date"><?= $post->news_date ?></span>
-                <span class="entry_tags"><a href="<?= Url::to(['site/news']) ?>">News</a></span>
+                <span class="entry_date"><?= $post->articles_date ?></span>
+                <span class="entry_tags"><a href="<?= Url::to(['site/articles']) ?>">Статьи</a></span>
             </div>
-            <img class="frame alignleft" src="<?= $post->news_image ?>" alt="">
+            <img class="frame alignleft" src="<?= $post->articles_image ?>" alt="">
             <p>
-                <?= $post->news_text ?>
+                <?= $post->articles_text ?>
             </p>
 	</div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <?= LastNews::widget() ?>
-        </div>
     </div>
 </section>

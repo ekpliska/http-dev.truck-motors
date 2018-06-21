@@ -3,18 +3,21 @@
     use yii\web\Controller;
     use Yii;
     use yii\web\HttpException;
-    use app\models\News;
+    use app\models\Articles;
+    use app\models\Sliders;
 
 class ArticlesController extends Controller
 {
     public function actionView($slug) {
         
-        $post = News::findSlug($slug)->one();
+        $sliders = Sliders::find()->andWhere(['sliders_show' => true, 'sliders_adverts' => false])->all();
+        
+        $post = Articles::findSlug($slug)->one();
         
         if ($slug == null || $post === null) {
             throw new HttpException(404 ,'User not found');
         }
         
-        return $this->render('view', ['post' => $post]);
+        return $this->render('view', ['post' => $post, 'sliders' => $sliders]);
     }
 }

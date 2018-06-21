@@ -222,10 +222,11 @@ class SiteController extends Controller
     /*
      * Страница "Статей" 
      */
-//    public function actionArticles() {
-//        return $this->render('articles');
-//        
-//    }
+    public function actionArticles() {
+        $sliders = Sliders::find()->andWhere(['sliders_show' => true, 'sliders_adverts' => false])->all();
+        return $this->render('articles', ['sliders' => $sliders]);
+        
+    }
     
     /*
      * Формирование карты сайта (XML)

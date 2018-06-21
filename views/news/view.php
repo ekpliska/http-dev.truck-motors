@@ -7,7 +7,7 @@
  */
 $this->title = $post->news_name;
 $this->params['breadcrumbs'][] = ['label' => 'Новости', 'url' => ['site/news']];
-$this->params['breadcrumbs'][] = $service->news_name;
+$this->params['breadcrumbs'][] = $post->news_name;
 ?>
 <section class="site-news">    
     <div class="container">
