@@ -53,6 +53,7 @@ class RecordsLeg extends ActiveRecord
         $message = Yii::$app->mailer->compose([
                 'html' => 'views/' . $view,
             ], $params)
+            ->setFrom('info@truck-motors.su')
             ->setTo(Yii::$app->params['email_service'])
             ->setSubject($subject)
             ->send();

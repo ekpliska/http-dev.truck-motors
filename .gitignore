@@ -15,6 +15,9 @@ Thumbs.db
 # composer vendor dir
 /vendor
 
+# Email config
+/config/config_email.php
+
 # composer itself is not needed
 composer.phar
 

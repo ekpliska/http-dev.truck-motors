@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = 'Юридическое лицo';
             
             <?php
                 $form = ActiveForm::begin([
-                    'action' => [],
+                    'id' => 'record-leg',
                     'enableClientValidation' => true,
                     'enableAjaxValidation' => false,
                     'fieldConfig' => [

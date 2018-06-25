@@ -2,6 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$email_comfig = require __DIR__ . '/config_email.php';
 
 $config = [
     'id' => 'basic',
@@ -30,24 +31,7 @@ $config = [
         /*
          * Настройка отправки писем
          */
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            'viewPath' => '@app/mail/',  // Шаблоны писем
-            'htmlLayout' => 'layouts/template-record',    // Макеты писем (layouts), HTML версия
-            'messageConfig' => [
-                'charset' => 'UTF-8',   // Кодировка писем UTF-8
-                'from' => ['info@truck-motors.su' => 'TuckMotors'],  // Задаем e-mail адрес и имя отправителя по умолчанию
-            ],
-//            'transport' => [
-//                'class' => 'Swift_SmtpTransport',
-//                'host' => '',
-//                'username' => '',
-//                'password' => '',
-//                'port' => '',
-//                'encryption' => 'tls',
-//            ],
-            'useFileTransport' => true, // Флаг указывающий на то, что бы письма не отправлялись а сохранялись в папку runtime/mail
-        ],
+        'mailer' => $email_comfig,
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -79,8 +63,8 @@ $config = [
                 'news' => 'site/news',                
                 'news/<slug>' => 'news/view',
                 'articles/page/<page:\d+>' => 'site/articles',                
-                'articles' => 'site/articles',                
-                'articles/<slug>' => 'articles/view',
+                'articles' => 'site/articles',
+                '<slug>' => 'articles/view',
                 'contact' => 'site/contact',
             ],
         ],

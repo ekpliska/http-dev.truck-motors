@@ -14,17 +14,19 @@ class SiteMenu extends Widget
 	public $pages;
 
 	// Страницы для футера
-	public $pagesFooter;
+	public $pages_footer;
 
 	
     public function init() {
     	
     	$this->pages = Menu::find()
-    		->andWhere(['menu_parent' => 1, 'menu_show' => 1])
+    		->andWhere(['menu_parent' => 1])
     		->with(['children'])
-    		->all();        
+    		->all();           
     }
 
+    
+    
     public function run() {
         return $this->render('sitemenu\\' . $this->view_name, ['pages' => $this->pages]);
     }

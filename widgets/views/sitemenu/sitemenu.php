@@ -8,20 +8,22 @@
 <?php
 $items = [];
 foreach ($pages as $page) {
-    $item = [
-        'label' => Html::encode($page->menu_name),
-        'url' => ($page->children) ? '#' : Url::to(['site/' . $page->menu_alias])
-    ];
-    if ($page->children) {
-        $item['items'] = [];
-        foreach ($page->children as $child) {
-            $item['items'][] = [
-                'label' => Html::encode($child->menu_name),
-                'url' => Url::to(['site/' . $child->menu_alias])
-            ];
+    if ($page['menu_show'] == true) {
+        $item = [
+            'label' => Html::encode($page->menu_name),
+            'url' => ($page->children) ? '#' : Url::to(['site/' . $page->menu_alias])
+        ];
+        if ($page->children) {
+            $item['items'] = [];
+            foreach ($page->children as $child) {
+                $item['items'][] = [
+                    'label' => Html::encode($child->menu_name),
+                    'url' => Url::to(['site/' . $child->menu_alias])
+                ];
+            }
         }
+        $items[] = $item;
     }
-    $items[] = $item;
 }
 ?>
 
