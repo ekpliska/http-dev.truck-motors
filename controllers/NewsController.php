@@ -12,7 +12,7 @@ class NewsController extends Controller
         $post = News::findSlug($slug)->one();
         
         if ($slug == null || $post === null) {
-            throw new HttpException(404 ,'User not found');
+            throw new HttpException(404, 'Искомая новость не найдена');
         }
         
         return $this->render('view', ['post' => $post]);

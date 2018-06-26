@@ -11,13 +11,11 @@
     use app\modules\admin\models\NewsForm;
 
 /**
- * NewsController implements the CRUD actions for News model.
+ * Новости
  */
 class NewsController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
+
     public function behaviors()
     {
         return [

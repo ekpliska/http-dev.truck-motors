@@ -22,8 +22,8 @@
                     <li class="cm-submenu">
                         <a class="sf-book-bookmark">Заявки<span class="caret"></span></a>
                         <ul>
-                            <li><a href="#">Физические лица</a></li>
-                            <li><a href="#">Юридические лица</a></li>
+                            <li><a href="<?= Url::to(['records-ind/index']) ?>">Физические лица</a></li>
+                            <li><a href="<?= Url::to(['records-leg/index']) ?>">Юридические лица</a></li>
                         </ul>
                     </li>
                     

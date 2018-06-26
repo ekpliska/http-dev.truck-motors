@@ -4,7 +4,7 @@
     use yii\base\Model;
 
 /**
- * Слайдер
+ * Слайдер - модель формы
  */
 class SlidersForm extends Model
 {

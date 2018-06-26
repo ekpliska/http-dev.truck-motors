@@ -5,7 +5,6 @@
     use yii\behaviors\TimestampBehavior;
     use yii\behaviors\SluggableBehavior;
     use yii\db\ActiveRecord;
-    use yii\db\Expression;
     
 
 /**

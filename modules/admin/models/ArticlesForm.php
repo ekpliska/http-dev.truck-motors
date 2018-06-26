@@ -6,7 +6,7 @@
     use yii\behaviors\SluggableBehavior;
 
 /**
- * Статьи
+ * Статьи - модель формы
  */    
 class ArticlesForm extends Model
 {

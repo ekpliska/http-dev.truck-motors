@@ -758,7 +758,7 @@ margin-bottom: 20px;
 
 .footer-distributed .footer__logo {
     padding-bottom: 10px;
-    width: 35%;
+    width: 25%;
 }
 
 .footer-distributed .footer__contact_policy {
@@ -867,75 +867,6 @@ margin-bottom: 20px;
     background-color: #e31e24;
 }
 /* end styles for footer */
-
-
-
-/* styles menu footer
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-nav ul:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-nav a {
-    text-decoration: none;
-    display: block;
-    transition: .3s linear;
-}
-
-.topmenu > li {
-    float: left;
-    position: relative;
-}
-.topmenu > li:first-child {border-left: 0;}
-.topmenu > li > a {
-    padding: 0px 50px 5px 0px;
-    font-size: 12px;
-    color: #7f8c8d;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    font-weight: 400;
-}
-
-.topmenu > li > a:hover {
-    text-decoration: none;
-    color: #95a5a6;
-}
-
-.topmenu > li > a.active,
-.submenu a:hover {color: #ddbe86;}
-.topmenu .fa,
-.submenu .fa {
-    margin-left: 5px;
-    color: inherit;
-}
-
-.submenu {
-    position: absolute;
-    z-index: 5;
-    min-width: 200px;
-}
-
-.submenu li {
-    position: relative;
-}
-
-.submenu li a {
-    color: #7f8c8d;
-    font-size: 12px;
-}
-
-.submenu li a:hover {
-    text-decoration: none;
-    color: #95a5a6;
-}
- end style menu footer */
 
 /*===============================*/
 /*         Slider  (Brand)       */
@@ -1137,8 +1068,6 @@ nav a {
 /*===============================*/
 /*    Style for main-services    */
 /*===============================*/
-/* */
-
 
 h5.modal-title.modal-title__brand {
     font-size: 26px;
@@ -1252,7 +1181,7 @@ img.frame.alignleft {
 }
 /* end styles for page of news */
 
-/* styles for one page of news */
+/* styles for one page of news (Last News) */
 .side_bar_widget .span-6 { 
     margin-left: 20px; 
     margin-bottom: 10px;
@@ -1271,22 +1200,30 @@ img.frame.alignleft {
     border-style: solid;
     border-color: #fff;
     border-radius: 5px;
-    background-color: #f6f6f6;
+    /*background-color: #f6f6f6;*/
     margin-bottom: 100px;
 }
 
-.side_bar h4 { 
+.side_bar_widget h4 { 
     text-transform: uppercase; 
     margin-bottom: 10px; 
     padding-bottom: 15px; 
-    font-size: 18px; 
+    font-size: 18px;
+    color: #0279b0;
+    font-weight: bold;
 } 
 
-.side_bar h3 { 
-    text-transform: uppercase; 
-    margin-bottom: 10px; 
-    padding-bottom: 15px; 
-    font-size: 24px; 
+.side_bar_widget h6 { 
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.small-text{
+    text-align: justify;
+    font-size: 14px;
 }
 
 .flickr { 
@@ -1300,8 +1237,9 @@ img.frame.alignleft {
 }
 
 .side_bar_widget__date {
-    font-size: 12px;
-    margin-bottom: 5px; 
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 .side_bar_widget a:hover {
     text-decoration: none;

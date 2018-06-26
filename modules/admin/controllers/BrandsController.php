@@ -12,7 +12,7 @@
     use app\modules\admin\models\BrandsForm;
     
 /**
- * BrandsController implements the CRUD actions for Brands model.
+ * Бранды / Полставщики
  */
 class BrandsController extends Controller
 {

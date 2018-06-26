@@ -11,7 +11,7 @@
     use app\modules\admin\models\BasicServicesForm;
 
 /**
- * BasicServicesController implements the CRUD actions for BasicServices model.
+ * Основные услуги
  */
 class BasicServicesController extends Controller
 {

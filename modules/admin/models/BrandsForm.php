@@ -3,7 +3,7 @@
     use yii\base\Model;
 
 /**
- * Поставщики
+ * Поставщики - модель формы
  */
 class BrandsForm extends Model
 {

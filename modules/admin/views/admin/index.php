@@ -72,9 +72,21 @@
     </div>-->
     <!--<div class="container-fluid">-->
         <div class="row cm-fix-height">
+            
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>!</p>
+                    </div>
+                </div>
+            </div>            
+            
             <div class="col-sm-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Юридические лица</div>
+                    <div class="panel-heading">
+                        <h5>Юридические лица</h5>
+                        <a href="<?= Url::to(['records-ind/index']) ?>" class="btn btn-block btn-info btn-xs">Все заявки</a>
+                    </div>
                     <div class="panel-body">
 
                         <table class="table table-hover" style="margin-bottom:0">
@@ -83,7 +95,7 @@
                                     <th>Н/п</th>
                                     <th>Дата / Время</th>
                                     <th>Контакты</th>
-                                    <th>btn</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,33 +105,70 @@
                                             <?= $record->records_id ?>
                                         </th>
                                         <td>
-                                            <?= $record->records_date ?> / 
+                                            <?= $record->records_date ?>
+                                            <br />
                                             <?= $record->records_time ?>
                                         </td>
-                                        <td><?= $record->records_fullName ?></td>
-                                        <td> >> </td>
+                                        <td>
+                                            <b><?= $record->records_fullName ?></b>
+                                            <br />
+                                            <?= $record->records_phone ?>
+                                        </td>
+                                        <td>
+                                            <a href="<?= Url::to(['records-ind/view', 'id' => $record->records_id]) ?>" class="btn btn-block btn-info btn-xs">Смотреть</a>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Физические лица</div>
+                    <div class="panel-heading">
+                        <h5>Физические лица</h5>
+                        <a href="<?= Url::to(['records-leg/index']) ?>" class="btn btn-block btn-danger btn-xs">Все заявки</a>                        
+                    </div>
                     <div class="panel-body">
-                        table
+                        
+                        <table class="table table-hover" style="margin-bottom:0">
+                            <thead>
+                                <tr>
+                                    <th>Н/п</th>
+                                    <th>Дата / Время</th>
+                                    <th>Контакты</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($records_leg as $record) : ?>
+                                    <tr>
+                                        <th scope="row">
+                                            <?= $record->records_id ?>
+                                        </th>
+                                        <td>
+                                            <?= $record->records_date ?>
+                                            <br />
+                                            <?= $record->records_time ?>
+                                        </td>
+                                        <td>
+                                            <b><?= $record->records_nameCompany ?></b>
+                                            <br />
+                                            <?= $record->records_phone ?>
+                                        </td>
+                                        <td>
+                                            <a href="<?= Url::to(['records-leg/view', 'id' => $record->records_id]) ?>" class="btn btn-block btn-danger btn-xs">Смотреть</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>                        
+                        
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <p>Text</p>
-                    </div>
-                </div>
-            </div>             
         </div>
     <!--</div>-->
     

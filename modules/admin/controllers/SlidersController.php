@@ -12,7 +12,7 @@ use app\modules\admin\models\Sliders;
 use app\modules\admin\models\SlidersForm;
 
 /**
- * SlidersController implements the CRUD actions for Sliders model.
+ * Слайдер
  */
 class SlidersController extends Controller
 {

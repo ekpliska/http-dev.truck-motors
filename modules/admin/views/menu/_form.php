@@ -14,7 +14,7 @@
         <div class="row">
             <?php
                 $form = ActiveForm::begin([
-                    'id' => 'record-ind',
+                    'id' => 'menu-form',
                     'enableClientValidation' => true,
                     'enableAjaxValidation' => false,
                     'fieldConfig' => [

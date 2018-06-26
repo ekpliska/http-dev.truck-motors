@@ -2,20 +2,18 @@
 
     namespace app\modules\admin\models;
     use Yii;
+    use yii\db\ActiveRecord;
 
-class Brands extends \yii\db\ActiveRecord
+/*
+ * Бренды, поставщики
+ */    
+class Brands extends ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
     public static function tableName()
     {
         return 'tbl_brands';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
@@ -24,9 +22,6 @@ class Brands extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function attributeLabels()
     {
         return [

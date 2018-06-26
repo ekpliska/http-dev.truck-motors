@@ -24,10 +24,8 @@
                 <span class="side_bar_widget__date">
                     <?= Yii::$app->formatter->asDate($last_new->news_date, 'd MMMM Y') ?>
                 </span>
-                <p class="small">
+                <p class="small-text">
                     <?= StringHelper::truncate(strip_tags($last_new->news_text), 150, '...') ?>
-                    <br />
-                    <span><?= $last_new->news_date ?></span>
                 </p>
             </div>
             <hr />

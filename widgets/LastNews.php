@@ -11,7 +11,7 @@ class LastNews extends Widget {
 
     public function run() {
         
-        $last_news = ModelNews::find()->orderBy('news_id desc')->limit(5)->all(); ;
+        $last_news = ModelNews::find()->orderBy('news_id desc')->limit(5)->all();
 
         return $this->render('lastnews\lastnews', [
              'last_news' => $last_news,

@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * TextBlocksController implements the CRUD actions for TextBlocks model.
+ * Текстовые блоки
  */
 class TextBlocksController extends Controller
 {

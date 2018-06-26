@@ -36,7 +36,7 @@ class RecordsInd extends ActiveRecord
     public function rules()
     {
         return [
-            [['records_fullName', 'records_phone', 'records_date', 'records_time', 'records_check'], 'required'],
+            [['records_fullName', 'records_phone', 'records_date', 'records_time'], 'required'],
             [['records_townId', 'records_check'], 'integer'],
             [['records_fullName'], 'string', 'max' => 100],
             [['records_phone'], 'string', 'max' => 50],
@@ -96,6 +96,8 @@ class RecordsInd extends ActiveRecord
             'records_date' => 'Дата',
             'records_time' => 'Время',
             'records_check' => 'Соглашаюсь на обработку персональных данных',
+            'rec_contact' => 'Контактная информация',
+            'rec_info' => 'Информация об автомобиле',
         ];
     }
 }

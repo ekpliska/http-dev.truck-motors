@@ -18,7 +18,7 @@ class RecordsLeg extends ActiveRecord
     public function rules()
     {
         return [
-            [['records_nameCompany', 'records_phone', 'records_date', 'records_time', 'records_check'], 'required'],
+            [['records_nameCompany', 'records_phone', 'records_date', 'records_time'], 'required'],
             [['records_townId', 'records_check'], 'integer'],
             [['records_nameCompany'], 'string', 'max' => 100],
             [['records_mark', 'records_model', 'records_number'], 'string', 'max' => 30],
@@ -75,6 +75,8 @@ class RecordsLeg extends ActiveRecord
             'records_time' => 'Время',
             'records_check' => 'Соглашаюсь на обработку персональных данных',
             'records_phone' => 'Контактный телефон',
+            'rec_contact' => 'Контактная информация',
+            'rec_info' => 'Информация об автомобиле',            
         ];
     }
 }

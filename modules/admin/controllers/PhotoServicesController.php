@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
 /**
- * PhotoServicesController implements the CRUD actions for PhotoServices model.
+ * Фотогалерея - основные услуги
  */
 class PhotoServicesController extends Controller
 {

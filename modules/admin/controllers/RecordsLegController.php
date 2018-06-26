@@ -3,16 +3,16 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Menu;
+use app\models\RecordsLeg;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * Меню
+ * Заявки СТО - Юридические лица
  */
-class MenuController extends Controller
+class RecordsLegController extends Controller
 {
     public function behaviors()
     {
@@ -29,7 +29,7 @@ class MenuController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Menu::find(),
+            'query' => RecordsLeg::find()->orderBy('records_id desc'),
         ]);
 
         return $this->render('index', [
@@ -46,10 +46,11 @@ class MenuController extends Controller
 
     public function actionCreate()
     {
-        $model = new Menu();
+        $model = new RecordsLeg();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->menu_id]);
+            Yii::$app->session->setFlash('success', 'Новая запись успешно создана');            
+            return $this->redirect(['view', 'id' => $model->records_id]);
         }
 
         return $this->render('create', [
@@ -62,7 +63,8 @@ class MenuController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->menu_id]);
+            Yii::$app->session->setFlash('success', 'Запись была успешно обновлена');            
+            return $this->redirect(['view', 'id' => $model->records_id]);
         }
 
         return $this->render('update', [
@@ -79,10 +81,10 @@ class MenuController extends Controller
 
     protected function findModel($id)
     {
-        if (($model = Menu::findOne($id)) !== null) {
+        if (($model = RecordsLeg::findOne($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException('Ошика, искомая запись не найдена.');
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

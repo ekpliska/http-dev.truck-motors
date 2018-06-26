@@ -15,7 +15,7 @@ class ArticlesController extends Controller
         $post = Articles::findSlug($slug)->one();
         
         if ($slug == null || $post === null) {
-            throw new HttpException(404 ,'User not found');
+            throw new HttpException(404, 'Искомая статья не найдена');
         }
         
         return $this->render('view', ['post' => $post, 'sliders' => $sliders]);

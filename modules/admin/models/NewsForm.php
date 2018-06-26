@@ -6,7 +6,7 @@
     use yii\behaviors\SluggableBehavior;
 
 /**
- * Новости
+ * Новости - модел формы
  */
 class NewsForm extends Model
 {

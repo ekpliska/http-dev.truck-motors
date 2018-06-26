@@ -6,7 +6,7 @@
     use yii\behaviors\SluggableBehavior;
 
 /**
- * Основные услуги
+ * Основные услуги - модель формы
  */
 class BasicServicesForm extends Model
 {

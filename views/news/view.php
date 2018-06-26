@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $post->news_name;
             ?>
             <div class="post_meta">
                 <span class="entry_date"><?= $post->news_date ?></span>
-                <span class="entry_tags"><a href="<?= Url::to(['site/news']) ?>">News</a></span>
+                <span class="entry_tags"><a href="<?= Url::to(['site/news']) ?>">Новости</a></span>
             </div>
             <img class="frame alignleft" src="<?= $post->news_image ?>" alt="">
             <p>
